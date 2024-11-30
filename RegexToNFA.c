@@ -33,6 +33,7 @@ int add_one_edge(struct finite_automata * g, int src, int dst, struct char_set *
     char *s = (char*)malloc(c->n * sizeof(char));
     memcpy(s, c->c, c->n * sizeof(char));
     g->lb[nw].c = s;
+    return nw;
 }
 
 struct component* build(struct simpl_regexp* x) {
