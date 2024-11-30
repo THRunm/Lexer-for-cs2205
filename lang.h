@@ -55,7 +55,7 @@ struct simpl_regexp {
 
 struct finite_automata {
   int n; /* number of vertices, id of vertices are: 0, 1, ..., (n - 1) */
-  int m; /* number of edges, id of vertices are: 0, 1, ..., (m - 1) */
+  int m; /* number of edges, id of edges are: 0, 1, ..., (m - 1) */
   int * src; /* for every edge e, src[e] is the source vertex of e */
   int * dst; /* for every edge e, dst[e] is the destination vertex of e */
   struct char_set * lb; /* for every edge e, lb[e] are the transition lables on e, if the char set empty, the edge is an epsilon edge */
