@@ -1,41 +1,10 @@
 #include "RegexToNFA.h"
 
 struct finite_automata *nfa;
-int siz = 32;
 struct char_set EMPTY = {NULL, 0};
 
-struct finite_automata * create_empty_graph() {
-    struct finite_automata* nfa = (struct finite_automata*)malloc(sizeof(struct finite_automata));
-    nfa->n = nfa->m = 0;
-    nfa->src = (int*)calloc(siz, sizeof(int));
-    nfa->dst = (int*)calloc(siz, sizeof(int));
-    nfa->lb = (struct char_set*)calloc(siz, sizeof(struct char_set));
-    return nfa;
-}
-
-int add_one_vertex(struct finite_automata * g) {
-    g->n++;
-    return g->n - 1;
-}
-
-int add_one_edge(struct finite_automata * g, int src, int dst, struct char_set * c) {
-    g->m++;
-    int nw = g->m - 1;
-    if (nw >= siz) {
-        siz <<= 1;
-        g->src = (int*)realloc(g->src, siz * sizeof(int));
-        g->dst = (int*)realloc(g->dst, siz * sizeof(int));
-        g->lb = (struct char_set*)realloc(g->lb, siz * sizeof(struct char_set));
-    }
-    g->src[nw] = src;
-    g->dst[nw] = dst;
-    g->lb[nw] = *c;
-    char *s = (char*)malloc(c->n * sizeof(char));
-    memcpy(s, c->c, c->n * sizeof(char));
-    g->lb[nw].c = s;
-    return nw;
-}
-
+// build NFA from the given simplified regular expression.
+// return the start and end vertex of the NFA.
 struct component* build(struct simpl_regexp* x) {
     int S, T;
     if (x->t == T_S_CHAR_SET) {
@@ -74,14 +43,16 @@ struct component* build(struct simpl_regexp* x) {
     return res;
 }
 
-struct NFA* build_nfa(struct simpl_regexp * x) {
+// build NFA from the given simplified regular expression.
+struct finite_automata * build_nfa(struct simpl_regexp * x, int * src, int * dst) {
     nfa = create_empty_graph();
     struct component * res = build(x);
-    struct NFA * ret = (struct NFA*)malloc(sizeof(struct NFA));
-    ret->comp = res, ret->nfa = nfa;
-    return ret;
+    src = (int*)malloc(sizeof(int)), dst = (int*)malloc(sizeof(int));
+    *src = res->src, *dst = res->dst;
+    return nfa;
 }
 
+// print the NFA.
 void print(struct finite_automata * g) {
     printf("n = %d, m = %d\n", g->n, g->m);
     for (int i = 0; i < g->m; i++) {

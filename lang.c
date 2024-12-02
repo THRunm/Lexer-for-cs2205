@@ -1,4 +1,5 @@
 #include "lang.h"
+#include <string.h>
 
 void copy_char_set(struct char_set * dst, struct char_set * src){
     dst->c = src->c;
@@ -97,6 +98,40 @@ struct simpl_regexp * TS_Concat(struct simpl_regexp * r1, struct simpl_regexp * 
     ret->d.CONCAT.r1 = r1;
     ret->d.CONCAT.r2 = r2;
     return ret;
+}
+
+const int SIZ = 32;
+
+struct finite_automata * create_empty_graph() {
+    struct finite_automata* g = (struct finite_automata*)malloc(sizeof(struct finite_automata));
+    g->n = g->m = 0, g->siz = SIZ;
+    g->src = (int*)calloc(SIZ, sizeof(int));
+    g->dst = (int*)calloc(SIZ, sizeof(int));
+    g->lb = (struct char_set*)calloc(SIZ, sizeof(struct char_set));
+    return g;
+}
+
+int add_one_vertex(struct finite_automata * g) {
+    g->n++;
+    return g->n - 1;
+}
+
+int add_one_edge(struct finite_automata * g, int src, int dst, struct char_set * c) {
+    g->m++;
+    int nw = g->m - 1;
+    if (nw >= g->siz) {
+        g->siz <<= 1;
+        g->src = (int*)realloc(g->src, g->siz * sizeof(int));
+        g->dst = (int*)realloc(g->dst, g->siz * sizeof(int));
+        g->lb = (struct char_set*)realloc(g->lb, g->siz * sizeof(struct char_set));
+    }
+    g->src[nw] = src;
+    g->dst[nw] = dst;
+    g->lb[nw] = *c;
+    char *s = (char*)malloc(c->n * sizeof(char));
+    memcpy(s, c->c, c->n * sizeof(char));
+    g->lb[nw].c = s;
+    return nw;
 }
 
 struct frontend_regexp * string_to_frontend_regexp(struct frontend_regexp * r){
