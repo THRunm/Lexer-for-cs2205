@@ -14,4 +14,7 @@ add_executable(Grammar_parser_for_cs2205
         RegexToNFA.c
         RegexToNFA.h
         SimplifyRegex.c
-        SimplifyRegex.h)
+        SimplifyRegex.h
+        lang.c
+        lang.h
+)
