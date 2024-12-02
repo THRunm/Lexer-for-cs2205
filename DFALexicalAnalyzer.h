@@ -8,7 +8,6 @@
 struct type {
     char *name;
     int id;
-    int state;
 };
 
 struct token {
@@ -35,10 +34,11 @@ struct _finite_automata {
 void free_tokens(struct tokens *tokens);
 // Function to free the DFA
 void free_dfa(struct _finite_automata *dfa);
-// Function to build the type
-void build_type(struct _finite_automata *dfa, struct type *types, int n);
 // Function to build the next_state transition table
-struct _finite_automata * build_next_state(struct finite_automata *dfa);
+struct _finite_automata * build_next_state(struct finite_automata *dfa,const int * types,struct type* type, int types_num);
 // Function to perform lexical analysis using the DFA
-struct tokens tokenize(struct finite_automata *intput_dfa, struct type *types, int types_num, const char *input);
+struct tokens tokenize(struct finite_automata *intput_dfa, int *types,struct type *type, int types_num, const char *input);
+
+void print(struct tokens *tokens);
+
 #endif //GRAMMAR_PARSER_FOR_CS2205_DFALEXICALANALYZER_H
