@@ -104,7 +104,65 @@ struct frontend_regexp * string_to_frontend_regexp(struct frontend_regexp * r){
 }
 
 char * frontend_regexp_to_string(struct frontend_regexp * r){
+    char *result = NULL;
+    char *temp1 = NULL;
+    char *temp2 = NULL;
 
+    switch (r->t) {
+        case T_FR_SINGLE_CHAR:
+            result = malloc(2);
+            result[0] = r->d.SINGLE_CHAR.c;
+            result[1] = '\0';
+            break;
+
+        case T_FR_STRING:
+            result = strdup(r->d.STRING.s);
+            break;
+
+        case T_FR_CONCAT:
+            temp1 = frontend_regexp_to_string(r->d.CONCAT.r1);
+            temp2 = frontend_regexp_to_string(r->d.CONCAT.r2);
+            result = malloc(strlen(temp1) + strlen(temp2) + 1);
+            sprintf(result, "%s%s", temp1, temp2);
+            free(temp1);
+            free(temp2);
+            break;
+
+        case T_FR_UNION:
+            temp1 = frontend_regexp_to_string(r->d.UNION.r1);
+            temp2 = frontend_regexp_to_string(r->d.UNION.r2);
+            result = malloc(strlen(temp1) + strlen(temp2) + 3);
+            sprintf(result, "(%s|%s)", temp1, temp2);
+            free(temp1);
+            free(temp2);
+            break;
+
+        case T_FR_STAR:
+            temp1 = frontend_regexp_to_string(r->d.STAR.r);
+            result = malloc(strlen(temp1) + 2);
+            sprintf(result, "%s*", temp1);
+            free(temp1);
+            break;
+
+        case T_FR_OPTIONAL:
+            temp1 = frontend_regexp_to_string(r->d.OPTION.r);
+            result = malloc(strlen(temp1) + 2);
+            sprintf(result, "%s?", temp1);
+            free(temp1);
+            break;
+
+        case T_FR_PLUS:
+            temp1 = frontend_regexp_to_string(r->d.PLUS.r);
+            result = malloc(strlen(temp1) + 2);
+            sprintf(result, "%s+", temp1);
+            free(temp1);
+            break;
+
+        default:
+            result = strdup("");
+            break;
+    }
+    return result;
 }
 
 char * simpl_regexp_to_string(struct simpl_regexp * r){
