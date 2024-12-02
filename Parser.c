@@ -15,7 +15,7 @@
 };*/
 
 /*
-优先级：\转义 > CHAR_SET = STRING = SINGLE_CHAR > OPTION = STAR = PLUS > CONCAT > UNION 
+优先级：\转义 > 括号 > CHAR_SET = STRING = SINGLE_CHAR > OPTION = STAR = PLUS > CONCAT > UNION 
 */
 
 
