@@ -12,10 +12,21 @@
     struct {struct frontend_regexp * r1; struct frontend_regexp * r2; } UNION;
     struct {struct frontend_regexp * r1; struct frontend_regexp * r2; } CONCAT;
   } d;
-};*/
+};
+
+void copy_char_set(struct char_set * dst, struct char_set * src);
+struct frontend_regexp * TFr_CharSet(struct char_set * c);
+struct frontend_regexp * TFr_Option(struct frontend_regexp * r);
+struct frontend_regexp * TFr_Star(struct frontend_regexp * r);
+struct frontend_regexp * TFr_Plus(struct frontend_regexp * r);
+struct frontend_regexp * TFr_String(char * s);
+struct frontend_regexp * TFr_SingleChar(char c);
+struct frontend_regexp * TFr_Union(struct frontend_regexp * r1, struct frontend_regexp * r2);
+struct frontend_regexp * TFr_Concat(struct frontend_regexp * r1, struct frontend_regexp * r2);
+*/
 
 /*
-优先级：\转义 > 括号 > CHAR_SET([]) = STRING({}) = SINGLE_CHAR > OPTION = STAR = PLUS > CONCAT > UNION 
+优先级： 括号 > CHAR_SET([char1char2...]表示) = STRING({string}表示) = SINGLE_CHAR > OPTION(r?表示) = STAR(r*表示) = PLUS(r+表示) > CONCAT(r1r2表示) > UNION(r1|r2表示) 
 */
 
 

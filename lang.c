@@ -134,68 +134,61 @@ int add_one_edge(struct finite_automata * g, int src, int dst, struct char_set *
     return nw;
 }
 
-char * frontend_regexp_to_string(struct frontend_regexp * r){
-    char *result = NULL;
-    char *temp1 = NULL;
-    char *temp2 = NULL;
-
+char * frontend_regexp_to_string(struct frontend_regexp * r) {
+    char buffer[1024];
     switch (r->t) {
-        case T_FR_SINGLE_CHAR:
-            result = malloc(2);
-            result[0] = r->d.SINGLE_CHAR.c;
-            result[1] = '\0';
+        case T_FR_CHAR_SET:
+            snprintf(buffer, sizeof(buffer), "[%s]", r->d.CHAR_SET.c);
             break;
-
-        case T_FR_STRING:
-            result = strdup(r->d.STRING.s);
-            break;
-
-        case T_FR_CONCAT:
-            temp1 = frontend_regexp_to_string(r->d.CONCAT.r1);
-            temp2 = frontend_regexp_to_string(r->d.CONCAT.r2);
-            result = malloc(strlen(temp1) + strlen(temp2) + 1);
-            sprintf(result, "%s%s", temp1, temp2);
-            free(temp1);
-            free(temp2);
-            break;
-
-        case T_FR_UNION:
-            temp1 = frontend_regexp_to_string(r->d.UNION.r1);
-            temp2 = frontend_regexp_to_string(r->d.UNION.r2);
-            result = malloc(strlen(temp1) + strlen(temp2) + 3);
-            sprintf(result, "(%s|%s)", temp1, temp2);
-            free(temp1);
-            free(temp2);
-            break;
-
-        case T_FR_STAR:
-            temp1 = frontend_regexp_to_string(r->d.STAR.r);
-            result = malloc(strlen(temp1) + 2);
-            sprintf(result, "%s*", temp1);
-            free(temp1);
-            break;
-
         case T_FR_OPTIONAL:
-            temp1 = frontend_regexp_to_string(r->d.OPTION.r);
-            result = malloc(strlen(temp1) + 2);
-            sprintf(result, "%s?", temp1);
-            free(temp1);
+            snprintf(buffer, sizeof(buffer), "%s?", frontend_regexp_to_string(r->d.OPTION.r));
             break;
-
+        case T_FR_STAR:
+            snprintf(buffer, sizeof(buffer), "%s*", frontend_regexp_to_string(r->d.STAR.r));
+            break;
         case T_FR_PLUS:
-            temp1 = frontend_regexp_to_string(r->d.PLUS.r);
-            result = malloc(strlen(temp1) + 2);
-            sprintf(result, "%s+", temp1);
-            free(temp1);
+            snprintf(buffer, sizeof(buffer), "%s+", frontend_regexp_to_string(r->d.PLUS.r));
             break;
-
+        case T_FR_STRING:
+            snprintf(buffer, sizeof(buffer), "{%s}", r->d.STRING.s);
+            break;
+        case T_FR_SINGLE_CHAR:
+            snprintf(buffer, sizeof(buffer), "%c", r->d.SINGLE_CHAR.c);
+            break;
+        case T_FR_UNION:
+            snprintf(buffer, sizeof(buffer), "%s|%s", frontend_regexp_to_string(r->d.UNION.r1), frontend_regexp_to_string(r->d.UNION.r2));
+            break;
+        case T_FR_CONCAT:
+            snprintf(buffer, sizeof(buffer), "%s%s", frontend_regexp_to_string(r->d.CONCAT.r1), frontend_regexp_to_string(r->d.CONCAT.r2));
+            break;
         default:
-            result = strdup("");
+            snprintf(buffer, sizeof(buffer), "<unknown>");
             break;
     }
-    return result;
+    return strdup(buffer);
 }
 
-char * simpl_regexp_to_string(struct simpl_regexp * r){
-         
+char * simpl_regexp_to_string(struct simpl_regexp * r) {
+    char buffer[1024];
+    switch (r->t) {
+        case T_S_CHAR_SET:
+            snprintf(buffer, sizeof(buffer), "[%s]", r->d.CHAR_SET.c);
+            break;
+        case T_S_STAR:
+            snprintf(buffer, sizeof(buffer), "%s*", simpl_regexp_to_string(r->d.STAR.r));
+            break;
+        case T_S_EMPTY_STR:
+            snprintf(buffer, sizeof(buffer), "ε");
+            break;
+        case T_S_UNION:
+            snprintf(buffer, sizeof(buffer), "%s|%s", simpl_regexp_to_string(r->d.UNION.r1), simpl_regexp_to_string(r->d.UNION.r2));
+            break;
+        case T_S_CONCAT:
+            snprintf(buffer, sizeof(buffer), "%s%s", simpl_regexp_to_string(r->d.CONCAT.r1), simpl_regexp_to_string(r->d.CONCAT.r2));
+            break;
+        default:
+            snprintf(buffer, sizeof(buffer), "<unknown>");
+            break;
+    }
+    return strdup(buffer);
 }
