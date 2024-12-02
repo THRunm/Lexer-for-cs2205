@@ -3,6 +3,8 @@
 struct finite_automata *nfa;
 struct char_set EMPTY = {NULL, 0};
 
+// build NFA from the given simplified regular expression.
+// return the start and end vertex of the NFA.
 struct component* build(struct simpl_regexp* x) {
     int S, T;
     if (x->t == T_S_CHAR_SET) {
@@ -41,6 +43,7 @@ struct component* build(struct simpl_regexp* x) {
     return res;
 }
 
+// build NFA from the given simplified regular expression.
 struct finite_automata * build_nfa(struct simpl_regexp * x, int * src, int * dst) {
     nfa = create_empty_graph();
     struct component * res = build(x);
@@ -49,6 +52,7 @@ struct finite_automata * build_nfa(struct simpl_regexp * x, int * src, int * dst
     return nfa;
 }
 
+// print the NFA.
 void print(struct finite_automata * g) {
     printf("n = %d, m = %d\n", g->n, g->m);
     for (int i = 0; i < g->m; i++) {
@@ -58,4 +62,9 @@ void print(struct finite_automata * g) {
         }
         printf("\n");
     }
+}
+
+int main() {
+    printf("Ciallo!\n");
+    return 0;
 }
