@@ -134,7 +134,7 @@ int add_one_edge(struct finite_automata * g, int src, int dst, struct char_set *
     return nw;
 }
 
-struct frontend_regexp * string_to_frontend_regexp(struct frontend_regexp * r){
+struct frontend_regexp * string_to_frontend_regexp(char ** str){
     
 }
 
