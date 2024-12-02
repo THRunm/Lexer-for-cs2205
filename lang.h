@@ -53,9 +53,9 @@ struct simpl_regexp {
   } d;
 };
 
-void string_to_frontend_regexp(char * s, struct frontend_regexp * r); // convert a string to a frontend regexp
-void frontend_regexp_to_string(char * s, struct frontend_regexp * r); // convert a frontend regexp to a string
-void simpl_regexp_to_string(char * s, struct simpl_regexp * r); // convert a simplified regexp to a string
+struct frontend_regexp * string_to_frontend_regexp(struct frontend_regexp * r); // convert a string to a frontend regexp
+char * frontend_regexp_to_string(struct frontend_regexp * r); // convert a frontend regexp to a string
+char * simpl_regexp_to_string(struct simpl_regexp * r); // convert a simplified regexp to a string
 
 struct finite_automata {
   int n; /* number of vertices, id of vertices are: 0, 1, ..., (n - 1) */

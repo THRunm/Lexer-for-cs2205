@@ -99,6 +99,14 @@ struct simpl_regexp * TS_Concat(struct simpl_regexp * r1, struct simpl_regexp * 
     return ret;
 }
 
-void string_to_frontend_regexp(char * s, struct frontend_regexp * r){
-      
+struct frontend_regexp * string_to_frontend_regexp(struct frontend_regexp * r){
+
+}
+
+char * frontend_regexp_to_string(struct frontend_regexp * r){
+
+}
+
+char * simpl_regexp_to_string(struct simpl_regexp * r){
+         
 }
