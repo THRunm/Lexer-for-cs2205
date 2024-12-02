@@ -39,6 +39,7 @@ struct frontend_regexp * TFr_String(char * s){
     ret->d.STRING.s = s;
     return ret;
 }
+
 struct frontend_regexp * TFr_SingleChar(char c){
     struct frontend_regexp * ret = (struct frontend_regexp *)malloc(sizeof(struct frontend_regexp));
     ret->t = T_FR_SINGLE_CHAR;
@@ -89,10 +90,15 @@ struct simpl_regexp * TS_Union(struct simpl_regexp * r1, struct simpl_regexp * r
     ret->d.UNION.r2 = r2;
     return ret;
 }
+
 struct simpl_regexp * TS_Concat(struct simpl_regexp * r1, struct simpl_regexp * r2){
     struct simpl_regexp * ret = (struct simpl_regexp *)malloc(sizeof(struct simpl_regexp));
     ret->t = T_S_CONCAT;
     ret->d.CONCAT.r1 = r1;
     ret->d.CONCAT.r2 = r2;
     return ret;
+}
+
+void string_to_frontend_regexp(char * s, struct frontend_regexp * r){
+      
 }
