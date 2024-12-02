@@ -33,7 +33,7 @@ void free_dfa(struct _finite_automata *dfa) {
 
 
 // Function to build the next_state transition table
-struct _finite_automata * build_next_state(struct finite_automata *dfa) {
+struct _finite_automata * build_next_state(struct finite_automata *dfa,const int * types,struct type* type,int types_num) {
     struct _finite_automata *dfa_ = malloc(sizeof(struct _finite_automata));
     dfa_->n = dfa->n;
     dfa_->m = dfa->m;
@@ -43,6 +43,9 @@ struct _finite_automata * build_next_state(struct finite_automata *dfa) {
     dfa_->accepting_token_type = malloc(sizeof(struct type *) * dfa->n);
     for (int i = 0; i < dfa->n; i++) {
         dfa_->accepting_token_type[i] = NULL;
+    }
+    for (int i = 0; i < types_num; i++) {
+        dfa_->accepting_token_type[types[i]] = &type[i];
     }
     int i, e, s;
     dfa_->next_state = malloc(sizeof(int *) * dfa->n);
@@ -74,16 +77,10 @@ struct _finite_automata * build_next_state(struct finite_automata *dfa) {
         }
     }
 }
-// Function to build the type
-void build_type(struct _finite_automata *dfa,struct type* types,int n){
-    for (int i = 0; i < n; i++) {
-        dfa->accepting_token_type[types[i].state] = &types[i];
-    }
-}
+
 // Function to perform lexical analysis using the DFA
-struct tokens tokenize(struct finite_automata *intput_dfa,struct type* types,int types_num,const char *input) {
-    struct _finite_automata *dfa = build_next_state(intput_dfa);
-    build_type(dfa,types,types_num);
+struct tokens tokenize(struct finite_automata *intput_dfa,int * types,struct type *type, int types_num, const char *input){
+    struct _finite_automata *dfa = build_next_state(intput_dfa,types,type,types_num);
     int position = 0;
     struct tokens result;
     result.tokens = malloc(sizeof(struct token) * 16);
@@ -138,4 +135,10 @@ struct tokens tokenize(struct finite_automata *intput_dfa,struct type* types,int
         }
     }
     return result;
+}
+
+void print(struct tokens *tokens) {
+    for (int i = 0; i < tokens->n; i++) {
+        printf("Token: %s, Type: %s\n", tokens->tokens[i].value, tokens->tokens[i].type->name);
+    }
 }
