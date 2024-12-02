@@ -63,8 +63,3 @@ void print(struct finite_automata * g) {
         printf("\n");
     }
 }
-
-int main() {
-    printf("Ciallo!\n");
-    return 0;
-}
