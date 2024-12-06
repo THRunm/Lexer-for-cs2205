@@ -53,9 +53,16 @@ struct simpl_regexp {
   } d;
 };
 
+char * frontend_regexp_to_string(struct frontend_regexp * r); // convert a frontend regexp to a string
+char * simpl_regexp_to_string(struct simpl_regexp * r); // convert a simplified regexp to a string
+
 struct finite_automata {
   int n; /* number of vertices, id of vertices are: 0, 1, ..., (n - 1) */
   int m; /* number of edges, id of edges are: 0, 1, ..., (m - 1) */
+<<<<<<< HEAD
+=======
+  int siz; /* size of the arrays src, dst, lb */
+>>>>>>> 53947d4ad82906d30943633ea1478334ac804c04
   int * src; /* for every edge e, src[e] is the source vertex of e */
   int * dst; /* for every edge e, dst[e] is the destination vertex of e */
   struct char_set * lb; /* for every edge e, lb[e] are the transition lables on e, if the char set empty, the edge is an epsilon edge */

@@ -4,9 +4,12 @@
 
 #include "SimplifyRegex.h"
 
+<<<<<<< HEAD
 
 #include "lang.h"
 
+=======
+>>>>>>> 53947d4ad82906d30943633ea1478334ac804c04
 struct simpl_regexp * transform_to_simplified(struct frontend_regexp *r) {
     if (!r) return NULL;
 
