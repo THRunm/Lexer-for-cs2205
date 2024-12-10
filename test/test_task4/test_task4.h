@@ -2,7 +2,7 @@
 #ifndef TEST_TASK4_H
 #define TEST_TASK4_H
 
-#include "../../DFALexicalAnalyzer.h"
+#include "../../include/DFALexicalAnalyzer.h"
 #include "../compare_struct.h"
 
 // Function to build test input

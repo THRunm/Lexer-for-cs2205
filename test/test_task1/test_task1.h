@@ -2,7 +2,7 @@
 #ifndef TEST_TASK1_H
 #define TEST_TASK1_H
 
-#include "../../SimplifyRegex.h"
+#include "../../include/SimplifyRegex.h"
 #include "../compare_struct.h"
 
 // Function to build test input

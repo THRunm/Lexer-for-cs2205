@@ -2,7 +2,7 @@
 #ifndef TEST_TASK2_H
 #define TEST_TASK2_H
 
-#include "../../RegexToNFA.h"
+#include "../../include/RegexToNFA.h"
 #include "../compare_struct.h"
 
 // Function to build test input

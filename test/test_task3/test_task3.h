@@ -2,7 +2,7 @@
 #ifndef TEST_TASK3_H
 #define TEST_TASK3_H
 
-#include "../../NFAToDFA.h"
+#include "../../include/NFAToDFA.h"
 #include "../compare_struct.h"
 
 // Function to build test input

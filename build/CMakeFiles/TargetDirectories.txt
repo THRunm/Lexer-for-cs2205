@@ -1,0 +1,3 @@
+/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/CMakeFiles/main.dir
+/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/CMakeFiles/rebuild_cache.dir
