@@ -23,7 +23,7 @@ void test_nfa_to_dfa(int test_case) {
 }
 
 int main() {
-    for(int i = 1; i <= 5; i++) {
+    for(int i = 1; i <= 10; i++) {
         test_nfa_to_dfa(i);
     }
     return 0;

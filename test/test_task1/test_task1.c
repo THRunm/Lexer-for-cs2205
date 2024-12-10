@@ -18,7 +18,7 @@ void test_simplify_regex(int test_case) {
 
 int main() {
     // Run tests for different test cases
-    for(int i = 1; i <= 5; i++) {
+    for(int i = 1; i <= 10; i++) {
         test_simplify_regex(i);
     }
     return 0;

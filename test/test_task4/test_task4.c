@@ -35,7 +35,7 @@ void test_lexical_analyzer(int test_case) {
 }
 
 int main() {
-    for(int i = 1; i <= 5; i++) {
+    for(int i = 1; i <= 10; i++) {
         test_lexical_analyzer(i);
     }
     return 0;
