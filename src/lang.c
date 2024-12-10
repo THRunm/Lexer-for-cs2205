@@ -134,61 +134,89 @@ int add_one_edge(struct finite_automata * g, int src, int dst, struct char_set *
     return nw;
 }
 
-char * frontend_regexp_to_string(struct frontend_regexp * r) {
-    char buffer[1024];
-    switch (r->t) {
+void print_frontend_regexp(struct frontend_regexp *re) {
+    if (!re) return;
+
+    switch (re->t) {
         case T_FR_CHAR_SET:
-            snprintf(buffer, sizeof(buffer), "[%s]", r->d.CHAR_SET.c);
+            printf("(");
+            for (unsigned int i = 0; i < re->d.CHAR_SET.n; i++) {
+                printf("%c", re->d.CHAR_SET.c[i]);
+            }
+            printf(")");
             break;
         case T_FR_OPTIONAL:
-            snprintf(buffer, sizeof(buffer), "%s?", frontend_regexp_to_string(r->d.OPTION.r));
+            printf("(");
+            print_frontend_regexp(re->d.OPTION.r);
+            printf("?)");
             break;
         case T_FR_STAR:
-            snprintf(buffer, sizeof(buffer), "%s*", frontend_regexp_to_string(r->d.STAR.r));
+            printf("(");
+            print_frontend_regexp(re->d.STAR.r);
+            printf("*)");
             break;
         case T_FR_PLUS:
-            snprintf(buffer, sizeof(buffer), "%s+", frontend_regexp_to_string(r->d.PLUS.r));
+            printf("(");
+            print_frontend_regexp(re->d.PLUS.r);
+            printf("+)");
             break;
         case T_FR_STRING:
-            snprintf(buffer, sizeof(buffer), "{%s}", r->d.STRING.s);
+            printf("(%s)", re->d.STRING.s);
             break;
         case T_FR_SINGLE_CHAR:
-            snprintf(buffer, sizeof(buffer), "%c", r->d.SINGLE_CHAR.c);
+            printf("(%c)", re->d.SINGLE_CHAR.c);
             break;
         case T_FR_UNION:
-            snprintf(buffer, sizeof(buffer), "%s|%s", frontend_regexp_to_string(r->d.UNION.r1), frontend_regexp_to_string(r->d.UNION.r2));
+            printf("(");
+            print_frontend_regexp(re->d.UNION.r1);
+            printf("|");
+            print_frontend_regexp(re->d.UNION.r2);
+            printf(")");
             break;
         case T_FR_CONCAT:
-            snprintf(buffer, sizeof(buffer), "%s%s", frontend_regexp_to_string(r->d.CONCAT.r1), frontend_regexp_to_string(r->d.CONCAT.r2));
+            printf("(");
+            print_frontend_regexp(re->d.CONCAT.r1);
+            print_frontend_regexp(re->d.CONCAT.r2);
+            printf(")");
             break;
         default:
-            snprintf(buffer, sizeof(buffer), "<unknown>");
-            break;
+            printf("(Unknown frontend_regexp type)");
     }
-    return strdup(buffer);
 }
 
-char * simpl_regexp_to_string(struct simpl_regexp * r) {
-    char buffer[1024];
-    switch (r->t) {
+void print_simpl_regexp(struct simpl_regexp *re) {
+    if (!re) return;
+
+    switch (re->t) {
         case T_S_CHAR_SET:
-            snprintf(buffer, sizeof(buffer), "[%s]", r->d.CHAR_SET.c);
+            printf("(");
+            for (unsigned int i = 0; i < re->d.CHAR_SET.n; i++) {
+                printf("%c", re->d.CHAR_SET.c[i]);
+            }
+            printf(")");
             break;
         case T_S_STAR:
-            snprintf(buffer, sizeof(buffer), "%s*", simpl_regexp_to_string(r->d.STAR.r));
+            printf("(");
+            print_simpl_regexp(re->d.STAR.r);
+            printf("*)");
             break;
         case T_S_EMPTY_STR:
-            snprintf(buffer, sizeof(buffer), "ε");
+            printf("(ε)"); // ε 表示空字符串
             break;
         case T_S_UNION:
-            snprintf(buffer, sizeof(buffer), "%s|%s", simpl_regexp_to_string(r->d.UNION.r1), simpl_regexp_to_string(r->d.UNION.r2));
+            printf("(");
+            print_simpl_regexp(re->d.UNION.r1);
+            printf("|");
+            print_simpl_regexp(re->d.UNION.r2);
+            printf(")");
             break;
         case T_S_CONCAT:
-            snprintf(buffer, sizeof(buffer), "%s%s", simpl_regexp_to_string(r->d.CONCAT.r1), simpl_regexp_to_string(r->d.CONCAT.r2));
+            printf("(");
+            print_simpl_regexp(re->d.CONCAT.r1);
+            print_simpl_regexp(re->d.CONCAT.r2);
+            printf(")");
             break;
         default:
-            snprintf(buffer, sizeof(buffer), "<unknown>");
-            break;
+            printf("(Unknown simpl_regexp type)");
     }
-    return strdup(buffer);
 }
