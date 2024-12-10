@@ -478,6 +478,7 @@ struct finite_automata NFA2DFA(int n, struct finite_automata ** nfa, int* dst, i
     for (int i = 0; i < ans.mm; i ++)
         ans_dst[i] = ans.dstt[i];
     free(ans.dstt);
+    destroyAutomataEx(&a);
     return anss;
 }
 
