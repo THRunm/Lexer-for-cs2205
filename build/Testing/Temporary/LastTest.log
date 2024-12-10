@@ -1,28 +1,18 @@
-Start testing: Dec 10 20:48 CST
+Start testing: Dec 10 21:00 CST
 ----------------------------------------------------------
-3/4 Testing: test_task3
-3/4 Test: test_task3
-Command: "/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/test_task3"
+4/4 Testing: test_task4
+4/4 Test: test_task4
+Command: "/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/test_task4"
 Directory: /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build
-"test_task3" start time: Dec 10 20:48 CST
+"test_task4" start time: Dec 10 21:00 CST
 Output:
 ----------------------------------------------------------
-Test case 1
-Test case 2
-Test case 3
-Test case 4
-Test case 5
-Test case 6
-Test case 7
-Test case 8
-Test case 9
-Test case 10
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
-Test Passed.
-"test_task3" end time: Dec 10 20:48 CST
-"test_task3" time elapsed: 00:00:00
+Test Failed.
+"test_task4" end time: Dec 10 21:00 CST
+"test_task4" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Dec 10 20:48 CST
+End testing: Dec 10 21:00 CST
