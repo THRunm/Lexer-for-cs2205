@@ -66,6 +66,8 @@ void read_inputs(char *file_name, char ***inputs, int *number) {
 }
 
 
+
 int main(int argc, char *argv[]) {
+    
     return 0;
 }
