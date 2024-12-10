@@ -3,7 +3,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include "../include/DFALexicalAnalyzer.h"
+#include "../include/NFAToDFA.h"
+#include "../include/RegexToNFA.h"
+#include "../include/SimplifyRegex.h"
+#include "../test/test.h"
 void read_inputs(char *file_name, char ***inputs, int *number) {
     FILE *fp = fopen(file_name, "r");
     if (fp == NULL) {
@@ -68,6 +72,6 @@ void read_inputs(char *file_name, char ***inputs, int *number) {
 
 
 int main(int argc, char *argv[]) {
-    
+
     return 0;
 }
