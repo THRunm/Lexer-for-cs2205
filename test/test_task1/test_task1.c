@@ -19,6 +19,7 @@ void test_simplify_regex(int test_case) {
 int main() {
     // Run tests for different test cases
     for(int i = 1; i <= 10; i++) {
+        printf("Test case %d\n", i);
         test_simplify_regex(i);
     }
     return 0;

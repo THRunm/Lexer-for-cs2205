@@ -36,6 +36,7 @@ void test_lexical_analyzer(int test_case) {
 
 int main() {
     for(int i = 1; i <= 10; i++) {
+        printf("Test case %d\n", i);
         test_lexical_analyzer(i);
     }
     return 0;

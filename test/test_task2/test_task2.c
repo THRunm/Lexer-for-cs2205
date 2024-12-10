@@ -20,6 +20,7 @@ void test_build_nfa(int test_case) {
 
 int main() {
     for(int i = 1; i <= 10; i++) {
+        printf("Test case %d\n", i);
         test_build_nfa(i);
     }
     return 0;
