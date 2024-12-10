@@ -2,6 +2,10 @@
 #include "test_task2.h"
 #include <assert.h>
 
+struct simpl_regexp* build_test_input_task2(int test_case, int* src, int* dst){}
+
+struct finite_automata* build_expected_output_task2(int test_case){}
+
 void test_build_nfa(int test_case) {
     int src, dst;
     

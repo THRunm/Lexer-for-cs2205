@@ -3,6 +3,13 @@
 #include <assert.h>
 #include <string.h>
 
+void build_test_input_task4(int test_case, struct finite_automata** dfa, int** types, 
+                           struct type** type, int* types_num, char** input){}
+
+struct tokens* build_expected_output_task4(int test_case){ 
+    
+}
+
 bool compare_tokens(struct tokens* t1, struct tokens* t2) {
     if (t1->n != t2->n) return 0;
     

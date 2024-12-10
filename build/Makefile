@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -117,24 +127,89 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named main
+# Target rules for targets named regex_lib
 
 # Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
-.PHONY : main
+regex_lib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 regex_lib
+.PHONY : regex_lib
 
 # fast build rule for target.
-main/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-.PHONY : main/fast
+regex_lib/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/regex_lib.dir/build.make CMakeFiles/regex_lib.dir/build
+.PHONY : regex_lib/fast
+
+#=============================================================================
+# Target rules for targets named main_program
+
+# Build rule for target.
+main_program: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main_program
+.PHONY : main_program
+
+# fast build rule for target.
+main_program/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_program.dir/build.make CMakeFiles/main_program.dir/build
+.PHONY : main_program/fast
+
+#=============================================================================
+# Target rules for targets named test_task1
+
+# Build rule for target.
+test_task1: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_task1
+.PHONY : test_task1
+
+# fast build rule for target.
+test_task1/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_task1.dir/build.make CMakeFiles/test_task1.dir/build
+.PHONY : test_task1/fast
+
+#=============================================================================
+# Target rules for targets named test_task2
+
+# Build rule for target.
+test_task2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_task2
+.PHONY : test_task2
+
+# fast build rule for target.
+test_task2/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_task2.dir/build.make CMakeFiles/test_task2.dir/build
+.PHONY : test_task2/fast
+
+#=============================================================================
+# Target rules for targets named test_task3
+
+# Build rule for target.
+test_task3: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_task3
+.PHONY : test_task3
+
+# fast build rule for target.
+test_task3/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_task3.dir/build.make CMakeFiles/test_task3.dir/build
+.PHONY : test_task3/fast
+
+#=============================================================================
+# Target rules for targets named test_task4
+
+# Build rule for target.
+test_task4: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_task4
+.PHONY : test_task4
+
+# fast build rule for target.
+test_task4/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_task4.dir/build.make CMakeFiles/test_task4.dir/build
+.PHONY : test_task4/fast
 
 src/DFALexicalAnalyzer.o: src/DFALexicalAnalyzer.c.o
 .PHONY : src/DFALexicalAnalyzer.o
 
 # target to build an object file
 src/DFALexicalAnalyzer.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/DFALexicalAnalyzer.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/regex_lib.dir/build.make CMakeFiles/regex_lib.dir/src/DFALexicalAnalyzer.c.o
 .PHONY : src/DFALexicalAnalyzer.c.o
 
 src/DFALexicalAnalyzer.i: src/DFALexicalAnalyzer.c.i
@@ -142,7 +217,7 @@ src/DFALexicalAnalyzer.i: src/DFALexicalAnalyzer.c.i
 
 # target to preprocess a source file
 src/DFALexicalAnalyzer.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/DFALexicalAnalyzer.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/regex_lib.dir/build.make CMakeFiles/regex_lib.dir/src/DFALexicalAnalyzer.c.i
 .PHONY : src/DFALexicalAnalyzer.c.i
 
 src/DFALexicalAnalyzer.s: src/DFALexicalAnalyzer.c.s
@@ -150,7 +225,7 @@ src/DFALexicalAnalyzer.s: src/DFALexicalAnalyzer.c.s
 
 # target to generate assembly for a file
 src/DFALexicalAnalyzer.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/DFALexicalAnalyzer.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/regex_lib.dir/build.make CMakeFiles/regex_lib.dir/src/DFALexicalAnalyzer.c.s
 .PHONY : src/DFALexicalAnalyzer.c.s
 
 src/NFAToDFA.o: src/NFAToDFA.c.o
@@ -158,7 +233,7 @@ src/NFAToDFA.o: src/NFAToDFA.c.o
 
 # target to build an object file
 src/NFAToDFA.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/NFAToDFA.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/regex_lib.dir/build.make CMakeFiles/regex_lib.dir/src/NFAToDFA.c.o
 .PHONY : src/NFAToDFA.c.o
 
 src/NFAToDFA.i: src/NFAToDFA.c.i
@@ -166,7 +241,7 @@ src/NFAToDFA.i: src/NFAToDFA.c.i
 
 # target to preprocess a source file
 src/NFAToDFA.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/NFAToDFA.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/regex_lib.dir/build.make CMakeFiles/regex_lib.dir/src/NFAToDFA.c.i
 .PHONY : src/NFAToDFA.c.i
 
 src/NFAToDFA.s: src/NFAToDFA.c.s
@@ -174,7 +249,7 @@ src/NFAToDFA.s: src/NFAToDFA.c.s
 
 # target to generate assembly for a file
 src/NFAToDFA.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/NFAToDFA.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/regex_lib.dir/build.make CMakeFiles/regex_lib.dir/src/NFAToDFA.c.s
 .PHONY : src/NFAToDFA.c.s
 
 src/RegexToNFA.o: src/RegexToNFA.c.o
@@ -182,7 +257,7 @@ src/RegexToNFA.o: src/RegexToNFA.c.o
 
 # target to build an object file
 src/RegexToNFA.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/RegexToNFA.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/regex_lib.dir/build.make CMakeFiles/regex_lib.dir/src/RegexToNFA.c.o
 .PHONY : src/RegexToNFA.c.o
 
 src/RegexToNFA.i: src/RegexToNFA.c.i
@@ -190,7 +265,7 @@ src/RegexToNFA.i: src/RegexToNFA.c.i
 
 # target to preprocess a source file
 src/RegexToNFA.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/RegexToNFA.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/regex_lib.dir/build.make CMakeFiles/regex_lib.dir/src/RegexToNFA.c.i
 .PHONY : src/RegexToNFA.c.i
 
 src/RegexToNFA.s: src/RegexToNFA.c.s
@@ -198,7 +273,7 @@ src/RegexToNFA.s: src/RegexToNFA.c.s
 
 # target to generate assembly for a file
 src/RegexToNFA.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/RegexToNFA.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/regex_lib.dir/build.make CMakeFiles/regex_lib.dir/src/RegexToNFA.c.s
 .PHONY : src/RegexToNFA.c.s
 
 src/SimplifyRegex.o: src/SimplifyRegex.c.o
@@ -206,7 +281,7 @@ src/SimplifyRegex.o: src/SimplifyRegex.c.o
 
 # target to build an object file
 src/SimplifyRegex.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/SimplifyRegex.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/regex_lib.dir/build.make CMakeFiles/regex_lib.dir/src/SimplifyRegex.c.o
 .PHONY : src/SimplifyRegex.c.o
 
 src/SimplifyRegex.i: src/SimplifyRegex.c.i
@@ -214,7 +289,7 @@ src/SimplifyRegex.i: src/SimplifyRegex.c.i
 
 # target to preprocess a source file
 src/SimplifyRegex.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/SimplifyRegex.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/regex_lib.dir/build.make CMakeFiles/regex_lib.dir/src/SimplifyRegex.c.i
 .PHONY : src/SimplifyRegex.c.i
 
 src/SimplifyRegex.s: src/SimplifyRegex.c.s
@@ -222,7 +297,7 @@ src/SimplifyRegex.s: src/SimplifyRegex.c.s
 
 # target to generate assembly for a file
 src/SimplifyRegex.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/SimplifyRegex.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/regex_lib.dir/build.make CMakeFiles/regex_lib.dir/src/SimplifyRegex.c.s
 .PHONY : src/SimplifyRegex.c.s
 
 src/lang.o: src/lang.c.o
@@ -230,7 +305,7 @@ src/lang.o: src/lang.c.o
 
 # target to build an object file
 src/lang.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lang.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/regex_lib.dir/build.make CMakeFiles/regex_lib.dir/src/lang.c.o
 .PHONY : src/lang.c.o
 
 src/lang.i: src/lang.c.i
@@ -238,7 +313,7 @@ src/lang.i: src/lang.c.i
 
 # target to preprocess a source file
 src/lang.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lang.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/regex_lib.dir/build.make CMakeFiles/regex_lib.dir/src/lang.c.i
 .PHONY : src/lang.c.i
 
 src/lang.s: src/lang.c.s
@@ -246,7 +321,7 @@ src/lang.s: src/lang.c.s
 
 # target to generate assembly for a file
 src/lang.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/lang.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/regex_lib.dir/build.make CMakeFiles/regex_lib.dir/src/lang.c.s
 .PHONY : src/lang.c.s
 
 src/main.o: src/main.c.o
@@ -254,7 +329,7 @@ src/main.o: src/main.c.o
 
 # target to build an object file
 src/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_program.dir/build.make CMakeFiles/main_program.dir/src/main.c.o
 .PHONY : src/main.c.o
 
 src/main.i: src/main.c.i
@@ -262,7 +337,7 @@ src/main.i: src/main.c.i
 
 # target to preprocess a source file
 src/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_program.dir/build.make CMakeFiles/main_program.dir/src/main.c.i
 .PHONY : src/main.c.i
 
 src/main.s: src/main.c.s
@@ -270,8 +345,128 @@ src/main.s: src/main.c.s
 
 # target to generate assembly for a file
 src/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_program.dir/build.make CMakeFiles/main_program.dir/src/main.c.s
 .PHONY : src/main.c.s
+
+test/compare_struct.o: test/compare_struct.c.o
+.PHONY : test/compare_struct.o
+
+# target to build an object file
+test/compare_struct.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/regex_lib.dir/build.make CMakeFiles/regex_lib.dir/test/compare_struct.c.o
+.PHONY : test/compare_struct.c.o
+
+test/compare_struct.i: test/compare_struct.c.i
+.PHONY : test/compare_struct.i
+
+# target to preprocess a source file
+test/compare_struct.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/regex_lib.dir/build.make CMakeFiles/regex_lib.dir/test/compare_struct.c.i
+.PHONY : test/compare_struct.c.i
+
+test/compare_struct.s: test/compare_struct.c.s
+.PHONY : test/compare_struct.s
+
+# target to generate assembly for a file
+test/compare_struct.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/regex_lib.dir/build.make CMakeFiles/regex_lib.dir/test/compare_struct.c.s
+.PHONY : test/compare_struct.c.s
+
+test/test_task1/test_task1.o: test/test_task1/test_task1.c.o
+.PHONY : test/test_task1/test_task1.o
+
+# target to build an object file
+test/test_task1/test_task1.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_task1.dir/build.make CMakeFiles/test_task1.dir/test/test_task1/test_task1.c.o
+.PHONY : test/test_task1/test_task1.c.o
+
+test/test_task1/test_task1.i: test/test_task1/test_task1.c.i
+.PHONY : test/test_task1/test_task1.i
+
+# target to preprocess a source file
+test/test_task1/test_task1.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_task1.dir/build.make CMakeFiles/test_task1.dir/test/test_task1/test_task1.c.i
+.PHONY : test/test_task1/test_task1.c.i
+
+test/test_task1/test_task1.s: test/test_task1/test_task1.c.s
+.PHONY : test/test_task1/test_task1.s
+
+# target to generate assembly for a file
+test/test_task1/test_task1.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_task1.dir/build.make CMakeFiles/test_task1.dir/test/test_task1/test_task1.c.s
+.PHONY : test/test_task1/test_task1.c.s
+
+test/test_task2/test_task2.o: test/test_task2/test_task2.c.o
+.PHONY : test/test_task2/test_task2.o
+
+# target to build an object file
+test/test_task2/test_task2.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_task2.dir/build.make CMakeFiles/test_task2.dir/test/test_task2/test_task2.c.o
+.PHONY : test/test_task2/test_task2.c.o
+
+test/test_task2/test_task2.i: test/test_task2/test_task2.c.i
+.PHONY : test/test_task2/test_task2.i
+
+# target to preprocess a source file
+test/test_task2/test_task2.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_task2.dir/build.make CMakeFiles/test_task2.dir/test/test_task2/test_task2.c.i
+.PHONY : test/test_task2/test_task2.c.i
+
+test/test_task2/test_task2.s: test/test_task2/test_task2.c.s
+.PHONY : test/test_task2/test_task2.s
+
+# target to generate assembly for a file
+test/test_task2/test_task2.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_task2.dir/build.make CMakeFiles/test_task2.dir/test/test_task2/test_task2.c.s
+.PHONY : test/test_task2/test_task2.c.s
+
+test/test_task3/test_task3.o: test/test_task3/test_task3.c.o
+.PHONY : test/test_task3/test_task3.o
+
+# target to build an object file
+test/test_task3/test_task3.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_task3.dir/build.make CMakeFiles/test_task3.dir/test/test_task3/test_task3.c.o
+.PHONY : test/test_task3/test_task3.c.o
+
+test/test_task3/test_task3.i: test/test_task3/test_task3.c.i
+.PHONY : test/test_task3/test_task3.i
+
+# target to preprocess a source file
+test/test_task3/test_task3.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_task3.dir/build.make CMakeFiles/test_task3.dir/test/test_task3/test_task3.c.i
+.PHONY : test/test_task3/test_task3.c.i
+
+test/test_task3/test_task3.s: test/test_task3/test_task3.c.s
+.PHONY : test/test_task3/test_task3.s
+
+# target to generate assembly for a file
+test/test_task3/test_task3.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_task3.dir/build.make CMakeFiles/test_task3.dir/test/test_task3/test_task3.c.s
+.PHONY : test/test_task3/test_task3.c.s
+
+test/test_task4/test_task4.o: test/test_task4/test_task4.c.o
+.PHONY : test/test_task4/test_task4.o
+
+# target to build an object file
+test/test_task4/test_task4.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_task4.dir/build.make CMakeFiles/test_task4.dir/test/test_task4/test_task4.c.o
+.PHONY : test/test_task4/test_task4.c.o
+
+test/test_task4/test_task4.i: test/test_task4/test_task4.c.i
+.PHONY : test/test_task4/test_task4.i
+
+# target to preprocess a source file
+test/test_task4/test_task4.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_task4.dir/build.make CMakeFiles/test_task4.dir/test/test_task4/test_task4.c.i
+.PHONY : test/test_task4/test_task4.c.i
+
+test/test_task4/test_task4.s: test/test_task4/test_task4.c.s
+.PHONY : test/test_task4/test_task4.s
+
+# target to generate assembly for a file
+test/test_task4/test_task4.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_task4.dir/build.make CMakeFiles/test_task4.dir/test/test_task4/test_task4.c.s
+.PHONY : test/test_task4/test_task4.c.s
 
 # Help Target
 help:
@@ -281,7 +476,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... main"
+	@echo "... test"
+	@echo "... main_program"
+	@echo "... regex_lib"
+	@echo "... test_task1"
+	@echo "... test_task2"
+	@echo "... test_task3"
+	@echo "... test_task4"
 	@echo "... src/DFALexicalAnalyzer.o"
 	@echo "... src/DFALexicalAnalyzer.i"
 	@echo "... src/DFALexicalAnalyzer.s"
@@ -300,6 +501,21 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... test/compare_struct.o"
+	@echo "... test/compare_struct.i"
+	@echo "... test/compare_struct.s"
+	@echo "... test/test_task1/test_task1.o"
+	@echo "... test/test_task1/test_task1.i"
+	@echo "... test/test_task1/test_task1.s"
+	@echo "... test/test_task2/test_task2.o"
+	@echo "... test/test_task2/test_task2.i"
+	@echo "... test/test_task2/test_task2.s"
+	@echo "... test/test_task3/test_task3.o"
+	@echo "... test/test_task3/test_task3.i"
+	@echo "... test/test_task3/test_task3.s"
+	@echo "... test/test_task4/test_task4.o"
+	@echo "... test/test_task4/test_task4.i"
+	@echo "... test/test_task4/test_task4.s"
 .PHONY : help
 
 

@@ -1,39 +1,53 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.10)
+project(RegexProject)
 
-# 项目名称
-project(GRAMMAR_PARSER_FOR_CS2205 C)
-
-# 设置 C 标准
+# 设置C标准
 set(CMAKE_C_STANDARD 11)
 
-# 包含目录
-include_directories(include)
+# 收集源文件(除了main.c)
+file(GLOB_RECURSE LIB_SOURCES 
+    "src/*.c"
+)
+list(REMOVE_ITEM LIB_SOURCES "${CMAKE_SOURCE_DIR}/src/main.c")
 
-# 源文件
-file(GLOB SRC_FILES src/*.c)
+# 收集测试辅助文件
+set(TEST_HELPER_SOURCES
+    "${CMAKE_SOURCE_DIR}/test/compare_struct.c"
+)
 
-# 添加主可执行文件
-add_executable(main ${SRC_FILES})
+# 创建库文件（包含src目录的源文件和测试辅助文件）
+add_library(regex_lib ${LIB_SOURCES} ${TEST_HELPER_SOURCES})
+target_include_directories(regex_lib PUBLIC 
+    ${CMAKE_SOURCE_DIR}/include
+    ${CMAKE_SOURCE_DIR}/test
+)
 
+# 主程序
+add_executable(main_program src/main.c)
+target_link_libraries(main_program regex_lib)
 
-# 添加测试任务的目标
-#add_executable(test_task1 test/test_task1/test_task1.c ${SRC_FILES})
-#add_executable(test_task2 test/test_task2/test_task2.c ${SRC_FILES})
-#add_executable(test_task3 test/test_task3/test_task3.c ${SRC_FILES})
-#add_executable(test_task4 test/test_task4/test_task4.c ${SRC_FILES})
+# 测试部分
+enable_testing()
 
-# 链接测试目标和需要的头文件
-#target_include_directories(test_task1 PRIVATE include test/test_task1)
-#target_include_directories(test_task2 PRIVATE include test/test_task2)
-#target_include_directories(test_task3 PRIVATE include test/test_task3)
-#target_include_directories(test_task4 PRIVATE include test/test_task4)
+# 收集测试文件（排除compare_struct.c）
+file(GLOB TEST_SOURCES 
+    "test/test_task*/*.c"
+    "test/test_task*.c"
+)
 
-# 启用测试
-#enable_testing()
-
-# 添加测试
-#add_test(NAME TestTask1 COMMAND test_task1)
-#add_test(NAME TestTask2 COMMAND test_task2)
-#add_test(NAME TestTask3 COMMAND test_task3)
-#add_test(NAME TestTask4 COMMAND test_task4)
-###
+# 为每个测试文件创建测试目标
+foreach(TEST_SOURCE ${TEST_SOURCES})
+    # 获取文件名(不含扩展名)作为测试名
+    get_filename_component(TEST_NAME ${TEST_SOURCE} NAME_WE)
+    
+    # 创建测试可执行文件
+    add_executable(${TEST_NAME} ${TEST_SOURCE})
+    target_link_libraries(${TEST_NAME} regex_lib)
+    target_include_directories(${TEST_NAME} PUBLIC 
+        ${CMAKE_SOURCE_DIR}/include
+        ${CMAKE_SOURCE_DIR}/test
+    )
+    
+    # 添加到CTest
+    add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
+endforeach()

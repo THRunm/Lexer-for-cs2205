@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/include -I/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test/test_task3
+C_INCLUDES = -I/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/include -I/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test
 
 C_FLAGS = -std=gnu11
 

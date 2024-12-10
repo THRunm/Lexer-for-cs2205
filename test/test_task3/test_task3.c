@@ -2,6 +2,10 @@
 #include "test_task3.h"
 #include <assert.h>
 
+void build_test_input_task3(int test_case, int* n, struct finite_automata** nfa, int* dst, int* dst_number){}
+
+void build_expected_output_task3(int test_case, int* ans_dst){}
+
 void test_nfa_to_dfa(int test_case) {
     int n;
     struct finite_automata* nfa;
@@ -20,6 +24,7 @@ void test_nfa_to_dfa(int test_case) {
     
     // Compare results
     assert(actual_ans_dst == expected_ans_dst && "DFA doesn't match expected output");
+    //这个比较逻辑是不对的，可能需要测试者继续补充。
 }
 
 int main() {

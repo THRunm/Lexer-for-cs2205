@@ -1,1 +1,1 @@
-/usr/bin/cc CMakeFiles/test_task1.dir/test/test_task1/test_task1.c.o CMakeFiles/test_task1.dir/src/DFALexicalAnalyzer.c.o CMakeFiles/test_task1.dir/src/NFAToDFA.c.o CMakeFiles/test_task1.dir/src/RegexToNFA.c.o CMakeFiles/test_task1.dir/src/SimplifyRegex.c.o CMakeFiles/test_task1.dir/src/lang.c.o CMakeFiles/test_task1.dir/src/main.c.o -o test_task1 
+/usr/bin/cc CMakeFiles/test_task1.dir/test/test_task1/test_task1.c.o -o test_task1  libregex_lib.a 
