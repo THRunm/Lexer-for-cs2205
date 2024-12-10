@@ -90,9 +90,9 @@ int main(int argc, char *argv[]) {
     }
     struct simpl_regexp **sr_regexps = (struct simpl_regexp **)malloc(types_num * sizeof(struct simpl_regexp *));
     for (int i = 0; i < types_num; i++) {
-        // print_frontend_regexp(fr_regexps[i]);
+        print_frontend_regexp(fr_regexps[i]);
         sr_regexps[i] = transform_to_simplified(fr_regexps[i]);
-        // print_simpl_regexp(sr_regexps[i]);
+        print_simpl_regexp(sr_regexps[i]);
     }
     struct finite_automata **nfa = (struct finite_automata **)malloc(types_num * sizeof(struct finite_automata *));
     int *start = (int *)malloc(types_num * sizeof(int));
@@ -100,20 +100,25 @@ int main(int argc, char *argv[]) {
     for (int i = 0; i < types_num; i++) {
         nfa[i] = build_nfa(sr_regexps[i],start,end);
     }
+    print(nfa[0]);
     int dst_number = 0;
     int *dst = (int *)malloc(types_num * sizeof(int));
-
+    
     struct finite_automata dfa = NFA2DFA(types_num, nfa, end, &dst_number, dst);
+    print(&dfa);
     for (int i=0;i<number;i++)
     {struct tokens tokens=tokenize(&dfa, dst, types, types_num, inputs[i]);
+    printf("Tokens:\n");
     print_token(tokens);
-    free_tokens(&tokens);}
-    free_dfa(&dfa);
+    //free_tokens(&tokens);
+    }
+    //free_dfa(&dfa);
+    /*
     for (int i = 0; i < types_num; i++) {
         free_simpl_regexp(sr_regexps[i]);
         free_frontend_regexp(fr_regexps[i]);
         free(nfa[i]);
     }
-
+    */
     return 0;
 }
