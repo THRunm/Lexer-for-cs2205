@@ -181,7 +181,11 @@ CMakeFiles/regex_lib.dir/src/RegexToNFA.c.o: ../src/RegexToNFA.c \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
+  /usr/include/string.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/strings.h
 
 CMakeFiles/regex_lib.dir/src/SimplifyRegex.c.o: ../src/SimplifyRegex.c \
   /usr/include/stdc-predef.h \
@@ -240,6 +244,10 @@ CMakeFiles/regex_lib.dir/src/SimplifyRegex.c.o: ../src/SimplifyRegex.c \
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
+  /usr/include/string.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/strings.h \
   ../include/lang.h
 
 CMakeFiles/regex_lib.dir/src/lang.c.o: ../src/lang.c \

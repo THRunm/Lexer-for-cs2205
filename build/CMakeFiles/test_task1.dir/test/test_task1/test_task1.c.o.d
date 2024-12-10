@@ -52,7 +52,10 @@ CMakeFiles/test_task1.dir/test/test_task1/test_task1.c.o: \
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h /usr/include/string.h \
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+ /usr/include/strings.h \
  /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test/test_task1/../compare_struct.h \
  /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/include/lang.h \
  /usr/include/assert.h

@@ -23,17 +23,23 @@ target_include_directories(regex_lib PUBLIC
 )
 
 # 主程序
-add_executable(main_program src/main.c)
-target_link_libraries(main_program regex_lib)
+add_executable(main src/main.c test/test.c) # 添加 test/test.c
+target_link_libraries(main regex_lib)
+target_include_directories(main PUBLIC 
+    ${CMAKE_SOURCE_DIR}/include
+    ${CMAKE_SOURCE_DIR}/test
+)
 
 # 测试部分
 enable_testing()
 
-# 收集测试文件（排除compare_struct.c）
+# 收集测试文件（排除compare_struct.c 和 test.c）
 file(GLOB TEST_SOURCES 
     "test/test_task*/*.c"
     "test/test_task*.c"
 )
+list(REMOVE_ITEM TEST_SOURCES "${CMAKE_SOURCE_DIR}/test/compare_struct.c")
+list(REMOVE_ITEM TEST_SOURCES "${CMAKE_SOURCE_DIR}/test/test.c") # 避免重复使用 test.c
 
 # 为每个测试文件创建测试目标
 foreach(TEST_SOURCE ${TEST_SOURCES})

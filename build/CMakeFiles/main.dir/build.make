@@ -69,80 +69,10 @@ include CMakeFiles/main.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/main.dir/flags.make
 
-CMakeFiles/main.dir/src/DFALexicalAnalyzer.c.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/DFALexicalAnalyzer.c.o: ../src/DFALexicalAnalyzer.c
-CMakeFiles/main.dir/src/DFALexicalAnalyzer.c.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/main.dir/src/DFALexicalAnalyzer.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/src/DFALexicalAnalyzer.c.o -MF CMakeFiles/main.dir/src/DFALexicalAnalyzer.c.o.d -o CMakeFiles/main.dir/src/DFALexicalAnalyzer.c.o -c /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/DFALexicalAnalyzer.c
-
-CMakeFiles/main.dir/src/DFALexicalAnalyzer.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/src/DFALexicalAnalyzer.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/DFALexicalAnalyzer.c > CMakeFiles/main.dir/src/DFALexicalAnalyzer.c.i
-
-CMakeFiles/main.dir/src/DFALexicalAnalyzer.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/src/DFALexicalAnalyzer.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/DFALexicalAnalyzer.c -o CMakeFiles/main.dir/src/DFALexicalAnalyzer.c.s
-
-CMakeFiles/main.dir/src/NFAToDFA.c.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/NFAToDFA.c.o: ../src/NFAToDFA.c
-CMakeFiles/main.dir/src/NFAToDFA.c.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/main.dir/src/NFAToDFA.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/src/NFAToDFA.c.o -MF CMakeFiles/main.dir/src/NFAToDFA.c.o.d -o CMakeFiles/main.dir/src/NFAToDFA.c.o -c /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/NFAToDFA.c
-
-CMakeFiles/main.dir/src/NFAToDFA.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/src/NFAToDFA.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/NFAToDFA.c > CMakeFiles/main.dir/src/NFAToDFA.c.i
-
-CMakeFiles/main.dir/src/NFAToDFA.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/src/NFAToDFA.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/NFAToDFA.c -o CMakeFiles/main.dir/src/NFAToDFA.c.s
-
-CMakeFiles/main.dir/src/RegexToNFA.c.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/RegexToNFA.c.o: ../src/RegexToNFA.c
-CMakeFiles/main.dir/src/RegexToNFA.c.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/main.dir/src/RegexToNFA.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/src/RegexToNFA.c.o -MF CMakeFiles/main.dir/src/RegexToNFA.c.o.d -o CMakeFiles/main.dir/src/RegexToNFA.c.o -c /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/RegexToNFA.c
-
-CMakeFiles/main.dir/src/RegexToNFA.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/src/RegexToNFA.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/RegexToNFA.c > CMakeFiles/main.dir/src/RegexToNFA.c.i
-
-CMakeFiles/main.dir/src/RegexToNFA.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/src/RegexToNFA.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/RegexToNFA.c -o CMakeFiles/main.dir/src/RegexToNFA.c.s
-
-CMakeFiles/main.dir/src/SimplifyRegex.c.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/SimplifyRegex.c.o: ../src/SimplifyRegex.c
-CMakeFiles/main.dir/src/SimplifyRegex.c.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/main.dir/src/SimplifyRegex.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/src/SimplifyRegex.c.o -MF CMakeFiles/main.dir/src/SimplifyRegex.c.o.d -o CMakeFiles/main.dir/src/SimplifyRegex.c.o -c /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/SimplifyRegex.c
-
-CMakeFiles/main.dir/src/SimplifyRegex.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/src/SimplifyRegex.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/SimplifyRegex.c > CMakeFiles/main.dir/src/SimplifyRegex.c.i
-
-CMakeFiles/main.dir/src/SimplifyRegex.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/src/SimplifyRegex.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/SimplifyRegex.c -o CMakeFiles/main.dir/src/SimplifyRegex.c.s
-
-CMakeFiles/main.dir/src/lang.c.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/lang.c.o: ../src/lang.c
-CMakeFiles/main.dir/src/lang.c.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/main.dir/src/lang.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/src/lang.c.o -MF CMakeFiles/main.dir/src/lang.c.o.d -o CMakeFiles/main.dir/src/lang.c.o -c /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/lang.c
-
-CMakeFiles/main.dir/src/lang.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/src/lang.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/lang.c > CMakeFiles/main.dir/src/lang.c.i
-
-CMakeFiles/main.dir/src/lang.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/src/lang.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/lang.c -o CMakeFiles/main.dir/src/lang.c.s
-
 CMakeFiles/main.dir/src/main.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/main.c.o: ../src/main.c
 CMakeFiles/main.dir/src/main.c.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/main.dir/src/main.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/main.dir/src/main.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/src/main.c.o -MF CMakeFiles/main.dir/src/main.c.o.d -o CMakeFiles/main.dir/src/main.c.o -c /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/main.c
 
 CMakeFiles/main.dir/src/main.c.i: cmake_force
@@ -153,27 +83,34 @@ CMakeFiles/main.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/src/main.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/main.c -o CMakeFiles/main.dir/src/main.c.s
 
+CMakeFiles/main.dir/test/test.c.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/test/test.c.o: ../test/test.c
+CMakeFiles/main.dir/test/test.c.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/main.dir/test/test.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/test/test.c.o -MF CMakeFiles/main.dir/test/test.c.o.d -o CMakeFiles/main.dir/test/test.c.o -c /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test/test.c
+
+CMakeFiles/main.dir/test/test.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/test/test.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test/test.c > CMakeFiles/main.dir/test/test.c.i
+
+CMakeFiles/main.dir/test/test.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/test/test.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test/test.c -o CMakeFiles/main.dir/test/test.c.s
+
 # Object files for target main
 main_OBJECTS = \
-"CMakeFiles/main.dir/src/DFALexicalAnalyzer.c.o" \
-"CMakeFiles/main.dir/src/NFAToDFA.c.o" \
-"CMakeFiles/main.dir/src/RegexToNFA.c.o" \
-"CMakeFiles/main.dir/src/SimplifyRegex.c.o" \
-"CMakeFiles/main.dir/src/lang.c.o" \
-"CMakeFiles/main.dir/src/main.c.o"
+"CMakeFiles/main.dir/src/main.c.o" \
+"CMakeFiles/main.dir/test/test.c.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
 
-main: CMakeFiles/main.dir/src/DFALexicalAnalyzer.c.o
-main: CMakeFiles/main.dir/src/NFAToDFA.c.o
-main: CMakeFiles/main.dir/src/RegexToNFA.c.o
-main: CMakeFiles/main.dir/src/SimplifyRegex.c.o
-main: CMakeFiles/main.dir/src/lang.c.o
 main: CMakeFiles/main.dir/src/main.c.o
+main: CMakeFiles/main.dir/test/test.c.o
 main: CMakeFiles/main.dir/build.make
+main: libregex_lib.a
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

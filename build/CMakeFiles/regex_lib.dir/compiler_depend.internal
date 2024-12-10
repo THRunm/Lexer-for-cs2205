@@ -185,6 +185,10 @@ CMakeFiles/regex_lib.dir/src/RegexToNFA.c.o
  /usr/include/alloca.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h
+ /usr/include/string.h
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h
+ /usr/include/strings.h
 
 CMakeFiles/regex_lib.dir/src/SimplifyRegex.c.o
  /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/SimplifyRegex.c
@@ -244,6 +248,10 @@ CMakeFiles/regex_lib.dir/src/SimplifyRegex.c.o
  /usr/include/alloca.h
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h
+ /usr/include/string.h
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h
+ /usr/include/strings.h
  /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/include/lang.h
 
 CMakeFiles/regex_lib.dir/src/lang.c.o

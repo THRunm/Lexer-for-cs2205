@@ -135,88 +135,164 @@ int add_one_edge(struct finite_automata * g, int src, int dst, struct char_set *
 }
 
 void print_frontend_regexp(struct frontend_regexp *re) {
+    print_frontend_regexp_rec(re);
+    printf("\n");
+}
+
+void print_frontend_regexp_rec(struct frontend_regexp *re) {
     if (!re) return;
 
     switch (re->t) {
-        case T_FR_CHAR_SET:
+    case T_FR_CHAR_SET:
             printf("(");
             for (unsigned int i = 0; i < re->d.CHAR_SET.n; i++) {
                 printf("%c", re->d.CHAR_SET.c[i]);
             }
             printf(")");
             break;
-        case T_FR_OPTIONAL:
+    case T_FR_OPTIONAL:
             printf("(");
-            print_frontend_regexp(re->d.OPTION.r);
+            print_frontend_regexp_rec(re->d.OPTION.r);
             printf("?)");
             break;
-        case T_FR_STAR:
+    case T_FR_STAR:
             printf("(");
-            print_frontend_regexp(re->d.STAR.r);
+            print_frontend_regexp_rec(re->d.STAR.r);
             printf("*)");
             break;
-        case T_FR_PLUS:
+    case T_FR_PLUS:
             printf("(");
-            print_frontend_regexp(re->d.PLUS.r);
+            print_frontend_regexp_rec(re->d.PLUS.r);
             printf("+)");
             break;
-        case T_FR_STRING:
+    case T_FR_STRING:
             printf("(%s)", re->d.STRING.s);
             break;
-        case T_FR_SINGLE_CHAR:
+    case T_FR_SINGLE_CHAR:
             printf("(%c)", re->d.SINGLE_CHAR.c);
             break;
-        case T_FR_UNION:
+    case T_FR_UNION:
             printf("(");
-            print_frontend_regexp(re->d.UNION.r1);
+            print_frontend_regexp_rec(re->d.UNION.r1);
             printf("|");
-            print_frontend_regexp(re->d.UNION.r2);
+            print_frontend_regexp_rec(re->d.UNION.r2);
             printf(")");
             break;
-        case T_FR_CONCAT:
+    case T_FR_CONCAT:
             printf("(");
-            print_frontend_regexp(re->d.CONCAT.r1);
-            print_frontend_regexp(re->d.CONCAT.r2);
+            print_frontend_regexp_rec(re->d.CONCAT.r1);
+            print_frontend_regexp_rec(re->d.CONCAT.r2);
             printf(")");
             break;
-        default:
+    default:
             printf("(Unknown frontend_regexp type)");
     }
 }
 
 void print_simpl_regexp(struct simpl_regexp *re) {
+    print_simpl_regexp_rec(re);
+    printf("\n");
+}
+
+void print_simpl_regexp_rec(struct simpl_regexp *re) {
     if (!re) return;
 
     switch (re->t) {
-        case T_S_CHAR_SET:
+    case T_S_CHAR_SET:
             printf("(");
             for (unsigned int i = 0; i < re->d.CHAR_SET.n; i++) {
                 printf("%c", re->d.CHAR_SET.c[i]);
             }
             printf(")");
             break;
-        case T_S_STAR:
+    case T_S_STAR:
             printf("(");
-            print_simpl_regexp(re->d.STAR.r);
+            print_simpl_regexp_rec(re->d.STAR.r);
             printf("*)");
             break;
-        case T_S_EMPTY_STR:
+    case T_S_EMPTY_STR:
             printf("(ε)"); // ε 表示空字符串
             break;
-        case T_S_UNION:
+    case T_S_UNION:
             printf("(");
-            print_simpl_regexp(re->d.UNION.r1);
+            print_simpl_regexp_rec(re->d.UNION.r1);
             printf("|");
-            print_simpl_regexp(re->d.UNION.r2);
+            print_simpl_regexp_rec(re->d.UNION.r2);
             printf(")");
             break;
-        case T_S_CONCAT:
+    case T_S_CONCAT:
             printf("(");
-            print_simpl_regexp(re->d.CONCAT.r1);
-            print_simpl_regexp(re->d.CONCAT.r2);
+            print_simpl_regexp_rec(re->d.CONCAT.r1);
+            print_simpl_regexp_rec(re->d.CONCAT.r2);
             printf(")");
             break;
-        default:
+    default:
             printf("(Unknown simpl_regexp type)");
     }
 }
+
+void free_frontend_regexp(struct frontend_regexp *fr) {
+    if (!fr) return;
+
+    switch (fr->t) {
+    case T_FR_CHAR_SET:
+            free(fr->d.CHAR_SET.c); // 释放 char_set 中的字符指针
+            break;
+    case T_FR_OPTIONAL:
+            free_frontend_regexp(fr->d.OPTION.r); // 递归释放子正则
+            break;
+    case T_FR_STAR:
+            free_frontend_regexp(fr->d.STAR.r); // 递归释放子正则
+            break;
+    case T_FR_PLUS:
+            free_frontend_regexp(fr->d.PLUS.r); // 递归释放子正则
+            break;
+    case T_FR_STRING:
+            free(fr->d.STRING.s); // 释放字符串
+            break;
+    case T_FR_SINGLE_CHAR:
+            // SINGLE_CHAR 不需要释放额外资源
+            break;
+    case T_FR_UNION:
+            free_frontend_regexp(fr->d.UNION.r1); // 递归释放第一个子正则
+            free_frontend_regexp(fr->d.UNION.r2); // 递归释放第二个子正则
+            break;
+    case T_FR_CONCAT:
+            free_frontend_regexp(fr->d.CONCAT.r1); // 递归释放第一个子正则
+            free_frontend_regexp(fr->d.CONCAT.r2); // 递归释放第二个子正则
+            break;
+    default:
+            break;
+    }
+
+    free(fr); // 最后释放自身
+}
+
+void free_simpl_regexp(struct simpl_regexp *sr) {
+    if (!sr) return;
+
+    switch (sr->t) {
+    case T_S_CHAR_SET:
+            free(sr->d.CHAR_SET.c); // 释放 char_set 中的字符指针
+            break;
+    case T_S_STAR:
+            free_simpl_regexp(sr->d.STAR.r); // 递归释放子正则
+            break;
+    case T_S_UNION:
+            free_simpl_regexp(sr->d.UNION.r1); // 递归释放第一个子正则
+            free_simpl_regexp(sr->d.UNION.r2); // 递归释放第二个子正则
+            break;
+    case T_S_CONCAT:
+            free_simpl_regexp(sr->d.CONCAT.r1); // 递归释放第一个子正则
+            free_simpl_regexp(sr->d.CONCAT.r2); // 递归释放第二个子正则
+            break;
+    case T_S_EMPTY_STR:
+            // EMPTY_STR 不需要释放额外资源
+            break;
+    default:
+            break;
+    }
+
+    free(sr); // 最后释放自身
+}
+

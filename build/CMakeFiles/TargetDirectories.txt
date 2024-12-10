@@ -1,5 +1,5 @@
 /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/CMakeFiles/regex_lib.dir
-/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/CMakeFiles/main_program.dir
+/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/CMakeFiles/main.dir
 /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/CMakeFiles/test_task1.dir
 /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/CMakeFiles/test_task2.dir
 /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/CMakeFiles/test_task3.dir

@@ -59,12 +59,22 @@ CMakeFiles/test_task1.dir/test/test_task1/test_task1.c.o: ../test/test_task1/tes
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
+  /usr/include/string.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/strings.h \
   ../test/compare_struct.h \
   ../include/lang.h \
   /usr/include/assert.h
 
 
 /usr/include/assert.h:
+
+../test/compare_struct.h:
+
+/usr/include/strings.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
 
@@ -108,6 +118,8 @@ CMakeFiles/test_task1.dir/test/test_task1/test_task1.c.o: ../test/test_task1/tes
 
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
+/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
+
 /usr/include/stdio.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
@@ -146,6 +158,8 @@ CMakeFiles/test_task1.dir/test/test_task1/test_task1.c.o: ../test/test_task1/tes
 
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
+/usr/include/string.h:
+
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
 ../test/test_task1/test_task1.h:
@@ -181,5 +195,3 @@ CMakeFiles/test_task1.dir/test/test_task1/test_task1.c.o: ../test/test_task1/tes
 /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h:
-
-../test/compare_struct.h:

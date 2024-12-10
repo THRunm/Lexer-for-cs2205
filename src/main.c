@@ -71,13 +71,15 @@ void read_inputs(char *file_name, char ***inputs, int *number) {
 
 
 int main(int argc, char *argv[]) {
+    initialize_test1_types();
+    allocate_and_initialize_test_fr_1();
     int test_case =atoi(argv[1]);
     struct frontend_regexp **fr_regexps ;
     struct type *types;
     int types_num;
     char **inputs;
     int number;
-    read_inputs(argv[2], &inputs, &number);
+    //read_inputs(argv[2], &inputs, &number);
     switch (test_case)
     {
         case 1: {
@@ -88,7 +90,9 @@ int main(int argc, char *argv[]) {
     }
     struct simpl_regexp **sr_regexps = (struct simpl_regexp **)malloc(types_num * sizeof(struct simpl_regexp *));
     for (int i = 0; i < types_num; i++) {
+        // print_frontend_regexp(fr_regexps[i]);
         sr_regexps[i] = transform_to_simplified(fr_regexps[i]);
+        // print_simpl_regexp(sr_regexps[i]);
     }
     struct finite_automata **nfa = (struct finite_automata **)malloc(types_num * sizeof(struct finite_automata *));
     int *start = (int *)malloc(types_num * sizeof(int));
@@ -98,6 +102,7 @@ int main(int argc, char *argv[]) {
     }
     int dst_number = 0;
     int *dst = (int *)malloc(types_num * sizeof(int));
+
     struct finite_automata dfa = NFA2DFA(types_num, nfa, end, &dst_number, dst);
     for (int i=0;i<number;i++)
     {struct tokens tokens=tokenize(&dfa, dst, types, types_num, inputs[i]);

@@ -140,17 +140,17 @@ regex_lib/fast:
 .PHONY : regex_lib/fast
 
 #=============================================================================
-# Target rules for targets named main_program
+# Target rules for targets named main
 
 # Build rule for target.
-main_program: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main_program
-.PHONY : main_program
+main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-main_program/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_program.dir/build.make CMakeFiles/main_program.dir/build
-.PHONY : main_program/fast
+main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
 
 #=============================================================================
 # Target rules for targets named test_task1
@@ -329,7 +329,7 @@ src/main.o: src/main.c.o
 
 # target to build an object file
 src/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_program.dir/build.make CMakeFiles/main_program.dir/src/main.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.c.o
 .PHONY : src/main.c.o
 
 src/main.i: src/main.c.i
@@ -337,7 +337,7 @@ src/main.i: src/main.c.i
 
 # target to preprocess a source file
 src/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_program.dir/build.make CMakeFiles/main_program.dir/src/main.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.c.i
 .PHONY : src/main.c.i
 
 src/main.s: src/main.c.s
@@ -345,7 +345,7 @@ src/main.s: src/main.c.s
 
 # target to generate assembly for a file
 src/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_program.dir/build.make CMakeFiles/main_program.dir/src/main.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.c.s
 .PHONY : src/main.c.s
 
 test/compare_struct.o: test/compare_struct.c.o
@@ -371,6 +371,30 @@ test/compare_struct.s: test/compare_struct.c.s
 test/compare_struct.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/regex_lib.dir/build.make CMakeFiles/regex_lib.dir/test/compare_struct.c.s
 .PHONY : test/compare_struct.c.s
+
+test/test.o: test/test.c.o
+.PHONY : test/test.o
+
+# target to build an object file
+test/test.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test/test.c.o
+.PHONY : test/test.c.o
+
+test/test.i: test/test.c.i
+.PHONY : test/test.i
+
+# target to preprocess a source file
+test/test.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test/test.c.i
+.PHONY : test/test.c.i
+
+test/test.s: test/test.c.s
+.PHONY : test/test.s
+
+# target to generate assembly for a file
+test/test.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test/test.c.s
+.PHONY : test/test.c.s
 
 test/test_task1/test_task1.o: test/test_task1/test_task1.c.o
 .PHONY : test/test_task1/test_task1.o
@@ -477,7 +501,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... main_program"
+	@echo "... main"
 	@echo "... regex_lib"
 	@echo "... test_task1"
 	@echo "... test_task2"
@@ -504,6 +528,9 @@ help:
 	@echo "... test/compare_struct.o"
 	@echo "... test/compare_struct.i"
 	@echo "... test/compare_struct.s"
+	@echo "... test/test.o"
+	@echo "... test/test.i"
+	@echo "... test/test.s"
 	@echo "... test/test_task1/test_task1.o"
 	@echo "... test/test_task1/test_task1.i"
 	@echo "... test/test_task1/test_task1.s"

@@ -1,1 +1,1 @@
-/usr/bin/cc CMakeFiles/main.dir/src/DFALexicalAnalyzer.c.o CMakeFiles/main.dir/src/NFAToDFA.c.o CMakeFiles/main.dir/src/RegexToNFA.c.o CMakeFiles/main.dir/src/SimplifyRegex.c.o CMakeFiles/main.dir/src/lang.c.o CMakeFiles/main.dir/src/main.c.o -o main 
+/usr/bin/cc CMakeFiles/main.dir/src/main.c.o CMakeFiles/main.dir/test/test.c.o -o main  libregex_lib.a 

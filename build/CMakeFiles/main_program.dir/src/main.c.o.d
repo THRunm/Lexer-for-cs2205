@@ -50,4 +50,13 @@ CMakeFiles/main_program.dir/src/main.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/string.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
- /usr/include/strings.h
+ /usr/include/strings.h \
+ /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/../include/DFALexicalAnalyzer.h \
+ /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/../include/NFAToDFA.h \
+ /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/../include/lang.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
+ /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/../include/RegexToNFA.h \
+ /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/../include/SimplifyRegex.h \
+ /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/../test/test.h \
+ /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/../test/../include/DFALexicalAnalyzer.h \
+ /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/../test/../include/lang.h

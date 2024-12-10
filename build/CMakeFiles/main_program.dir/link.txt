@@ -1,1 +1,1 @@
-/usr/bin/cc CMakeFiles/main_program.dir/src/main.c.o -o main_program  libregex_lib.a 
+/usr/bin/cc CMakeFiles/main_program.dir/src/main.c.o CMakeFiles/main_program.dir/test/test.c.o -o main_program  libregex_lib.a 

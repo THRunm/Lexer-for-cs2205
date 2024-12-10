@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="RegexProject"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="regex_lib">
+				<Option output="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/libregex_lib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/include"/>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 regex_lib"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="regex_lib/fast">
+				<Option output="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/libregex_lib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/include"/>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 regex_lib/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="main">
+				<Option output="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/include"/>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 main"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="main/fast">
+				<Option output="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/include"/>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 main/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_task1">
+				<Option output="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/test_task1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/include"/>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_task1"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_task1/fast">
+				<Option output="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/test_task1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/include"/>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_task1/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_task2">
+				<Option output="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/test_task2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/include"/>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_task2"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_task2/fast">
+				<Option output="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/test_task2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/include"/>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_task2/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_task3">
+				<Option output="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/test_task3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/include"/>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_task3"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_task3/fast">
+				<Option output="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/test_task3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/include"/>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_task3/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_task4">
+				<Option output="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/test_task4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/include"/>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_task4"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_task4/fast">
+				<Option output="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/test_task4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/include"/>
+					<Add directory="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_task4/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test">
+				<Option working_dir="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 test"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/DFALexicalAnalyzer.c">
+			<Option target="regex_lib"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/NFAToDFA.c">
+			<Option target="regex_lib"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/RegexToNFA.c">
+			<Option target="regex_lib"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/SimplifyRegex.c">
+			<Option target="regex_lib"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/lang.c">
+			<Option target="regex_lib"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/main.c">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test/compare_struct.c">
+			<Option target="regex_lib"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test/compare_struct.h">
+			<Option target="regex_lib"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test/test.c">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test/test.h">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test/test_task1/test_task1.c">
+			<Option target="test_task1"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test/test_task1/test_task1.h">
+			<Option target="test_task1"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test/test_task2/test_task2.c">
+			<Option target="test_task2"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test/test_task2/test_task2.h">
+			<Option target="test_task2"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test/test_task3/test_task3.c">
+			<Option target="test_task3"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test/test_task3/test_task3.h">
+			<Option target="test_task3"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test/test_task4/test_task4.c">
+			<Option target="test_task4"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test/test_task4/test_task4.h">
+			<Option target="test_task4"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

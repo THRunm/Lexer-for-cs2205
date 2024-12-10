@@ -60,18 +60,18 @@ CMakeFiles/test_task4.dir/test/test_task4/test_task4.c.o: ../test/test_task4/tes
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
-  /usr/include/assert.h \
   /usr/include/string.h \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
-  /usr/include/strings.h
+  /usr/include/strings.h \
+  /usr/include/assert.h
 
+
+/usr/include/assert.h:
 
 /usr/include/strings.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
-
-/usr/include/assert.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
 
