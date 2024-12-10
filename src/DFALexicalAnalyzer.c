@@ -137,8 +137,8 @@ struct tokens tokenize(struct finite_automata *intput_dfa,int * types,struct typ
     return result;
 }
 
-void print_token(struct tokens *tokens) {
-    for (int i = 0; i < tokens->n; i++) {
-        printf("Token: %s, Type: %s\n", tokens->tokens[i].value, tokens->tokens[i].type->name);
+void print_token(struct tokens tokens) {
+    for (int i = 0; i < tokens.n; i++) {
+        printf("Token: %s, Type: %s\n", tokens.tokens[i].value, tokens.tokens[i].type->name);
     }
 }

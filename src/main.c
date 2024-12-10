@@ -6,6 +6,7 @@
 #include "../include/RegexToNFA.h"
 #include "../include/SimplifyRegex.h"
 #include "../test/test.h"
+
 void read_inputs(char *file_name, char ***inputs, int *number) {
     FILE *fp = fopen(file_name, "r");
     if (fp == NULL) {
@@ -70,6 +71,44 @@ void read_inputs(char *file_name, char ***inputs, int *number) {
 
 
 int main(int argc, char *argv[]) {
+    int test_case =atoi(argv[1]);
+    struct frontend_regexp **fr_regexps ;
+    struct type *types;
+    int types_num;
+    char **inputs;
+    int number;
+    read_inputs(argv[2], &inputs, &number);
+    switch (test_case)
+    {
+        case 1: {
+            fr_regexps=test_fr_1;
+            types=test_types_1;
+            types_num=number_of_test1;
+        }
+    }
+    struct simpl_regexp **sr_regexps = (struct simpl_regexp **)malloc(types_num * sizeof(struct simpl_regexp *));
+    for (int i = 0; i < types_num; i++) {
+        sr_regexps[i] = transform_to_simplified(fr_regexps[i]);
+    }
+    struct finite_automata **nfa = (struct finite_automata **)malloc(types_num * sizeof(struct finite_automata *));
+    int *start = (int *)malloc(types_num * sizeof(int));
+    int *end = (int *)malloc(types_num * sizeof(int));
+    for (int i = 0; i < types_num; i++) {
+        nfa[i] = build_nfa(sr_regexps[i],start,end);
+    }
+    int dst_number = 0;
+    int *dst = (int *)malloc(types_num * sizeof(int));
+    struct finite_automata dfa = NFA2DFA(types_num, nfa, end, &dst_number, dst);
+    for (int i=0;i<number;i++)
+    {struct tokens tokens=tokenize(&dfa, dst, types, types_num, inputs[i]);
+    print_token(tokens);
+    free_tokens(&tokens);}
+    free_dfa(&dfa);
+    for (int i = 0; i < types_num; i++) {
+        free_simpl_regexp(sr_regexps[i]);
+        free_frontend_regexp(fr_regexps[i]);
+        free(nfa[i]);
+    }
 
     return 0;
 }
