@@ -1,7 +1,7 @@
 #include "compare_struct.h"
 #include <string.h>
 
-int compare_char_set(struct char_set* cs1, struct char_set* cs2) {
+bool compare_char_set(struct char_set* cs1, struct char_set* cs2) {
     if (cs1 == cs2) return 1; // Same pointer
     if (cs1 == NULL || cs2 == NULL) return 0;
     if (cs1->n != cs2->n) return 0;
@@ -13,7 +13,7 @@ int compare_char_set(struct char_set* cs1, struct char_set* cs2) {
     return 1;
 }
 
-int compare_frontend_regexp(struct frontend_regexp* r1, struct frontend_regexp* r2) {
+bool compare_frontend_regexp(struct frontend_regexp* r1, struct frontend_regexp* r2) {
     if (r1 == r2) return 1; // Same pointer
     if (r1 == NULL || r2 == NULL) return 0;
     if (r1->t != r2->t) return 0;
@@ -50,7 +50,7 @@ int compare_frontend_regexp(struct frontend_regexp* r1, struct frontend_regexp* 
     }
 }
 
-int compare_simpl_regexp(struct simpl_regexp* r1, struct simpl_regexp* r2) {
+bool compare_simpl_regexp(struct simpl_regexp* r1, struct simpl_regexp* r2) {
     if (r1 == r2) return 1; // Same pointer
     if (r1 == NULL || r2 == NULL) return 0;
     if (r1->t != r2->t) return 0;
@@ -78,7 +78,7 @@ int compare_simpl_regexp(struct simpl_regexp* r1, struct simpl_regexp* r2) {
     }
 }
 
-int compare_finite_automata(struct finite_automata* fa1, struct finite_automata* fa2) {
+bool compare_finite_automata(struct finite_automata* fa1, struct finite_automata* fa2) {
     if (fa1 == fa2) return 1; // Same pointer
     if (fa1 == NULL || fa2 == NULL) return 0;
     

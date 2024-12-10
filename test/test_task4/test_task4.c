@@ -3,7 +3,7 @@
 #include <assert.h>
 #include <string.h>
 
-int compare_tokens(struct tokens* t1, struct tokens* t2) {
+bool compare_tokens(struct tokens* t1, struct tokens* t2) {
     if (t1->n != t2->n) return 0;
     
     for (int i = 0; i < t1->n; i++) {
