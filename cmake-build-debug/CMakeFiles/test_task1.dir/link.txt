@@ -1,1 +1,0 @@
-/usr/bin/cc -g CMakeFiles/test_task1.dir/test/test_task1/test_task1.c.o -o test_task1  libregex_lib.a 
