@@ -1,9 +1,0 @@
-/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/CMakeFiles/regex_lib.dir
-/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/CMakeFiles/main.dir
-/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/CMakeFiles/test_task1.dir
-/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/CMakeFiles/test_task2.dir
-/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/CMakeFiles/test_task3.dir
-/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/CMakeFiles/test_task4.dir
-/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/CMakeFiles/test.dir
-/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/CMakeFiles/edit_cache.dir
-/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug/CMakeFiles/rebuild_cache.dir
