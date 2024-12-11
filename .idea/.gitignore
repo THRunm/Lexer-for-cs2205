@@ -6,3 +6,54 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+
+# Ignore build directories
+/build/
+/cmake-build-debug/
+
+# Ignore IDE-specific files and directories
+.idea/
+.vscode/
+
+# Ignore CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Ignore compiled object files
+*.o
+*.obj
+
+# Ignore executable files
+*.exe
+*.out
+*.app
+
+# Ignore log and temp files
+*.log
+*.tmp
+
+# Ignore backup files
+*.bak
+*.swp
+*.swo
+*.old
+
+# Ignore test output files
+/test_output/
+
+# Ignore user-specific files
+*.iml
+misc.xml
+modules.xml
+workspace.xml
+vcs.xml
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore generated files from regex simplification
+*.gen.c
+*.gen.h
