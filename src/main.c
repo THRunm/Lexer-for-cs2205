@@ -79,7 +79,7 @@ int main(int argc, char *argv[]) {
     int types_num;
     char **inputs;
     int number;
-    //read_inputs(argv[2], &inputs, &number);
+    read_inputs(argv[2], &inputs, &number);
     switch (test_case)
     {
         case 1: {
@@ -110,15 +110,13 @@ int main(int argc, char *argv[]) {
     {struct tokens tokens=tokenize(&dfa, dst, types, types_num, inputs[i]);
     printf("Tokens:\n");
     print_token(tokens);
-    //free_tokens(&tokens);
+    free_tokens(&tokens);
     }
-    //free_dfa(&dfa);
-    /*
+    free_dfa(&dfa);
     for (int i = 0; i < types_num; i++) {
         free_simpl_regexp(sr_regexps[i]);
         free_frontend_regexp(fr_regexps[i]);
         free(nfa[i]);
     }
-    */
     return 0;
 }

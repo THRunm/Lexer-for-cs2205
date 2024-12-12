@@ -3,30 +3,30 @@
 //
 #include "test.h"
 
-int number_of_test1 = 1;
+int number_of_test = 1;
 
-struct type * test_types_1 = NULL;
+struct type * test_types = NULL;
 
-struct frontend_regexp ** test_fr_1 = NULL;
+struct frontend_regexp ** test_fr = NULL;
 
 
-void initialize_test1_types() {
+void initialize_test_types() {
     // 分配 2 个 struct type 的内存
-    test_types_1 = (struct type *)malloc(sizeof(struct type));
+    test_types = (struct type *)malloc(sizeof(struct type));
     
     // 分配第一个 name 指针的内存，存储 2 个字符串的指针
-    test_types_1->name = (char **)malloc(sizeof(char *));
+    test_types->name = (char **)malloc(sizeof(char *));
     
     // 分配每个字符串的空间，并赋值
-    test_types_1->name[0] = (char *)malloc(50 * sizeof(char));
-    strcpy(test_types_1->name[0], "MambaOut"); // 设置第一个字符串值
+    test_types->name[0] = (char *)malloc(50 * sizeof(char));
+    strcpy(test_types->name[0], "MambaOut"); // 设置第一个字符串值
 
-    test_types_1->id = 24; 
+    test_types->id = 24; 
 }
 
 
-void allocate_and_initialize_test_fr_1() {
-    test_fr_1 = (struct frontend_regexp **)malloc(1 * sizeof(struct frontend_regexp *));
+void allocate_and_initialize_test_fr() {
+    test_fr = (struct frontend_regexp **)malloc(1 * sizeof(struct frontend_regexp *));
 
     struct frontend_regexp * r_i = TFr_SingleChar('i');
     struct frontend_regexp * r_f = TFr_SingleChar('f');
@@ -66,5 +66,5 @@ void allocate_and_initialize_test_fr_1() {
     struct frontend_regexp * concat5 = TFr_Concat(concat4, r_ws);
     struct frontend_regexp * concat6 = TFr_Concat(concat5, r_lbrace);
     struct frontend_regexp * concat7 = TFr_Concat(concat6, r_body);
-    test_fr_1[0] = TFr_Concat(concat7, r_rbrace);
+    test_fr[0] = TFr_Concat(concat7, r_rbrace);
 }
