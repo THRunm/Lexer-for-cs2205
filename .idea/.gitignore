@@ -1,9 +1,0 @@
-
-# Ignore build directories
-/build/
-/cmake-build-debug/
-
-# Ignore IDE-specific files and directories
-.idea/
-.vscode/
-
