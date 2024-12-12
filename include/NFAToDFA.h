@@ -96,6 +96,7 @@ bool incs (char a, struct char_set b) {
 
 // 复制一个char_set
 struct char_set copycs(struct char_set c) {
+//TODO 内存未释放
     struct char_set dst = {malloc(sizeof (char) * c.n), c.n};
     for (int i = 0; i < c.n; i ++)
         dst.c[i] = c.c[i];
@@ -224,6 +225,7 @@ struct finite_automata_exinf newAutomataEx(int n, int maxm, int maxn) {
     dst.maxn = maxn;
     dst.srcc = 0;
     dst.mm = 0;
+    //TODO 内存未释放
     dst.src = malloc(sizeof(int) * maxm);
     dst.dst = malloc(sizeof(int) * maxm);
     dst.lb = malloc(sizeof(int) * maxm);
@@ -475,6 +477,7 @@ struct finite_automata NFA2DFA(int n, struct finite_automata ** nfa, int* dst, i
     anss.dst = ans.dst;
     anss.lb = ans.lb;
     *dst_number = ans.mm;
+    //TODO 请注意这里的内存泄漏有非法写入
     for (int i = 0; i < ans.mm; i ++)
         ans_dst[i] = ans.dstt[i];
     free(ans.dstt);

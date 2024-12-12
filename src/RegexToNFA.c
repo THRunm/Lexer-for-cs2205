@@ -38,6 +38,7 @@ struct component* build(struct simpl_regexp* x) {
         S = res1->src, T = res2->dst;
         add_one_edge(nfa, res1->dst, res2->src, &EMPTY);
     }
+    //TODO 内存未释放
     struct component * res = (struct component*)malloc(sizeof(struct component));
     res->src = S, res->dst = T;
     return res;

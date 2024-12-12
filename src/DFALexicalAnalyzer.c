@@ -8,24 +8,30 @@
 
 // Function to free the tokens
 void free_tokens(struct tokens *tokens) {
+    if (tokens == NULL) return;
     for (int i = 0; i < tokens->n; i++) {
-        free(tokens->tokens[i].value);
+        if (tokens->tokens[i].value != NULL) {
+            free(tokens->tokens[i].value);
+        }
     }
     free(tokens->tokens);
+    tokens->tokens = NULL;
+    tokens->n = 0;
 }
 
 // Function to free the DFA
 void free_dfa(struct _finite_automata *dfa) {
-    for (int i = 0; i < dfa->n; i++) {
-        free(dfa->next_state[i]);
+    if (dfa == NULL) return;
+    if (dfa->next_state != NULL) {
+        for (int s = 0; s < dfa->n; s++) {
+            if (dfa->next_state[s] != NULL) {
+                free(dfa->next_state[s]);
+            }
+        }
+        free(dfa->next_state);
     }
-    free(dfa->next_state);
-    free(dfa->src);
-    free(dfa->dst);
-    free(dfa->lb);
-    for (int i = 0; i < dfa->n; i++) {
-        if (dfa->accepting_token_type[i] != NULL)
-        free(dfa->accepting_token_type[i]);
+    if (dfa->accepting_token_type != NULL) {
+        free(dfa->accepting_token_type);
     }
     free(dfa);
 }
@@ -44,7 +50,7 @@ struct _finite_automata * build_next_state(struct finite_automata *dfa,const int
         dfa_->accepting_token_type[i] = NULL;
     }
     for (int i = 0; i < types_num; i++) {
-        dfa_->accepting_token_type[types[i]] = &type[i];
+        dfa_->accepting_token_type[types[i]] = &type[0];
     }
     int i, e, s;
     dfa_->next_state = malloc(sizeof(int *) * dfa->n);
@@ -123,17 +129,22 @@ struct tokens tokenize(struct finite_automata *intput_dfa,int * types,struct typ
             result.n++;
             if (result.n == capacity) {
                 capacity *= 2;
-                struct token *new_tokens = malloc(sizeof(struct token) * capacity);
-                memcpy(new_tokens, result.tokens, sizeof(struct token) * result.n);
-                for (int i = 0; i < result.n; i++) {
-                    free(result.tokens[i].value);
+                struct token *new_tokens = realloc(result.tokens, sizeof(struct token) * capacity);
+                if (new_tokens == NULL) {
+                    fprintf(stderr, "Error: Failed to reallocate memory for tokens.\n");
+                    free(token);
+                    free_tokens(&result);
+                    free_dfa(dfa);
+                    struct tokens empty = {NULL, 0};
+                    return empty;
                 }
-                free(result.tokens);
                 result.tokens = new_tokens;
             }
             position = last_accepting_position;
         }
     }
+
+    free_dfa(dfa);
     return result;
 }
 

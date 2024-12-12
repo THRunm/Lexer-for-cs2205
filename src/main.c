@@ -111,17 +111,27 @@ int main(int argc, char *argv[]) {
     for (int i=0;i<number;i++)
     {
 
-    struct tokens tokens=tokenize(&dfa, dst, types, types_num, inputs[i]);
+    struct tokens tokens=tokenize(&dfa, dst, types, dst_number, inputs[i]);
     printf("Tokens:\n");
     print_token(tokens);
     free_tokens(&tokens);
     }
     printf("tokens finished\n");
-    free_dfa(&dfa);
     for (int i = 0; i < types_num; i++) {
         free_simpl_regexp(sr_regexps[i]);
         free_frontend_regexp(fr_regexps[i]);
         free(nfa[i]);
     }
+    for (int i = 0; i < number; i++) {
+        free(inputs[i]);
+    }
+    free(inputs);
+    free(start);
+    free(end);
+    free(dst);
+    free(fr_regexps);
+    free(sr_regexps);
+    free(nfa);
+    free(types);
     return 0;
 }
