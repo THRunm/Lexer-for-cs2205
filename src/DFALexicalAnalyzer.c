@@ -12,7 +12,6 @@ void free_tokens(struct tokens *tokens) {
         free(tokens->tokens[i].value);
     }
     free(tokens->tokens);
-    free(tokens);
 }
 
 // Function to free the DFA
@@ -76,6 +75,7 @@ struct _finite_automata * build_next_state(struct finite_automata *dfa,const int
             }
         }
     }
+    return dfa_;
 }
 
 // Function to perform lexical analysis using the DFA
@@ -139,6 +139,6 @@ struct tokens tokenize(struct finite_automata *intput_dfa,int * types,struct typ
 
 void print_token(struct tokens tokens) {
     for (int i = 0; i < tokens.n; i++) {
-        printf("Token: %s, Type: %s\n", tokens.tokens[i].value, tokens.tokens[i].type->name);
+        printf("Token: %s, Type: %s\n", tokens.tokens[i].value, *tokens.tokens[i].type->name);
     }
 }
