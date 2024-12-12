@@ -50,7 +50,7 @@ struct _finite_automata * build_next_state(struct finite_automata *dfa,const int
         dfa_->accepting_token_type[i] = NULL;
     }
     for (int i = 0; i < types_num; i++) {
-        dfa_->accepting_token_type[types[i]] = &type[0];
+        dfa_->accepting_token_type[types[i]] = &type[i];
     }
     int i, e, s;
     dfa_->next_state = malloc(sizeof(int *) * dfa->n);
