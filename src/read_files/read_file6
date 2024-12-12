@@ -1,1 +1,5 @@
-If 
+while (i < 10) { i++; }
+do { sum += i; } while (i < 100);
+while (x != 0) { x = x / 2; }
+do { y--; } while (y > 0);
+while (flag && count < limit) { count++; }

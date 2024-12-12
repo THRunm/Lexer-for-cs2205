@@ -1,1 +1,5 @@
-If 
+for (i = 0; i < 10; i++)
+for (x = 1; x < 100; x++)
+for (counter = 0; counter < 5; counter++)
+for (a = 3; a < 33; a++)
+for (index = 0; index < 50; index++)

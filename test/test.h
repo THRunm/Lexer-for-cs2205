@@ -14,8 +14,8 @@ extern struct type * test_types;
 
 extern struct frontend_regexp ** test_fr;
 
-void initialize_test1_types();
+void initialize_test_types(int test_case);
 
-void allocate_and_initialize_test_fr();
+void allocate_and_initialize_test_fr(int test_case);
 
 #endif //TEST_H

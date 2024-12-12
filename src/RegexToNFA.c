@@ -47,7 +47,6 @@ struct component* build(struct simpl_regexp* x) {
 struct finite_automata * build_nfa(struct simpl_regexp * x, int * src, int * dst) {
     nfa = create_empty_graph();
     struct component * res = build(x);
-    src = (int*)malloc(sizeof(int)), dst = (int*)malloc(sizeof(int));
     *src = res->src, *dst = res->dst;
     return nfa;
 }
