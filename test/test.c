@@ -5,66 +5,50 @@
 
 int number_of_test = 1;
 
-struct type * test_types = NULL;
+struct type *test_types = NULL;
 
-struct frontend_regexp ** test_fr = NULL;
+struct frontend_regexp **test_fr = NULL;
 
-
-void initialize_test_types() {
+void initialize_test_types()
+{
     // 分配 2 个 struct type 的内存
     test_types = (struct type *)malloc(sizeof(struct type));
-    
+
     // 分配第一个 name 指针的内存，存储 2 个字符串的指针
     test_types->name = (char **)malloc(sizeof(char *));
-    
+
     // 分配每个字符串的空间，并赋值
     test_types->name[0] = (char *)malloc(50 * sizeof(char));
-    strcpy(test_types->name[0], "MambaOut"); // 设置第一个字符串值
+    strcpy(test_types->name[0], "If"); // 设置第一个字符串值
 
-    test_types->id = 24; 
+    test_types->id = 24;
 }
 
-
-void allocate_and_initialize_test_fr() {
+void allocate_and_initialize_test_fr()
+{
     test_fr = (struct frontend_regexp **)malloc(1 * sizeof(struct frontend_regexp *));
+    struct char_set whitespace = {" \t", 2}; // \s: space and tab
+    struct char_set non_rparen = {"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*-_=+[]{}|;:',.<>?/`~ ", 95};
 
-    struct frontend_regexp * r_i = TFr_SingleChar('i');
-    struct frontend_regexp * r_f = TFr_SingleChar('f');
-    struct frontend_regexp * r_if = TFr_Concat(r_i, r_f);
+    struct frontend_regexp *if_keyword = TFr_String("if");
+    struct frontend_regexp *optional_whitespace = TFr_Star(TFr_CharSet(&whitespace));
+    struct frontend_regexp *left_paren = TFr_SingleChar('(');
+    struct frontend_regexp *condition = TFr_Star(TFr_CharSet(&non_rparen));
+    struct frontend_regexp *right_paren = TFr_SingleChar(')');
+    struct frontend_regexp *left_brace = TFr_SingleChar('{');
+    struct frontend_regexp *body = TFr_Star(TFr_CharSet(&non_rparen));
+    struct frontend_regexp *right_brace = TFr_SingleChar('}');
 
-    // Construct whitespace (space or tab)
-    struct char_set ws_chars = { " \t", 2 };
-    struct frontend_regexp * r_ws = TFr_CharSet(&ws_chars);
-
-    // Construct "("
-    struct frontend_regexp * r_lparen = TFr_SingleChar('(');
-
-    // Construct any characters except ")"
-    struct char_set not_rparen = { "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_ ", 63 };
-    struct frontend_regexp * r_not_rparen = TFr_CharSet(&not_rparen);
-    struct frontend_regexp * r_cond = TFr_Star(r_not_rparen);
-
-    // Construct ")"
-    struct frontend_regexp * r_rparen = TFr_SingleChar(')');
-
-    // Construct "{"
-    struct frontend_regexp * r_lbrace = TFr_SingleChar('{');
-
-    // Construct any characters except "}"
-    struct char_set not_rbrace = { "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_ ", 63 };
-    struct frontend_regexp * r_not_rbrace = TFr_CharSet(&not_rbrace);
-    struct frontend_regexp * r_body = TFr_Star(r_not_rbrace);
-
-    // Construct "}"
-    struct frontend_regexp * r_rbrace = TFr_SingleChar('}');
-
-    // Concatenate parts: "if" + ws + "(" + condition + ")" + ws + "{" + body + "}"
-    struct frontend_regexp * concat1 = TFr_Concat(r_if, r_ws);
-    struct frontend_regexp * concat2 = TFr_Concat(concat1, r_lparen);
-    struct frontend_regexp * concat3 = TFr_Concat(concat2, r_cond);
-    struct frontend_regexp * concat4 = TFr_Concat(concat3, r_rparen);
-    struct frontend_regexp * concat5 = TFr_Concat(concat4, r_ws);
-    struct frontend_regexp * concat6 = TFr_Concat(concat5, r_lbrace);
-    struct frontend_regexp * concat7 = TFr_Concat(concat6, r_body);
-    test_fr[0] = TFr_Concat(concat7, r_rbrace);
+    test_fr[0] =
+        TFr_Concat(if_keyword,
+                   TFr_Concat(optional_whitespace,
+                              TFr_Concat(left_paren,
+                                         TFr_Concat(condition,
+                                                    TFr_Concat(right_paren,
+                                                               TFr_Concat(optional_whitespace,
+                                                                          TFr_Concat(left_brace,
+                                                                                     TFr_Concat(body,
+                                                                                                right_brace))))))));
+    
+    return;
 }

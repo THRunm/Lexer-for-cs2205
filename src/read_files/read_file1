@@ -1,1 +1,5 @@
-If 
+if(x > 0){ return 1; }
+if ( y == 10 ) { y++; }
+if (z){ z--; }
+if(a != b){doSomething();}
+if ( k ) { foo(); bar(); }
