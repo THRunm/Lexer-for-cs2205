@@ -139,28 +139,13 @@ CMakeFiles/regex_lib.dir/src/lang.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/regex_lib.dir/src/lang.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/lang.c -o CMakeFiles/regex_lib.dir/src/lang.c.s
 
-CMakeFiles/regex_lib.dir/test/compare_struct.c.o: CMakeFiles/regex_lib.dir/flags.make
-CMakeFiles/regex_lib.dir/test/compare_struct.c.o: ../test/compare_struct.c
-CMakeFiles/regex_lib.dir/test/compare_struct.c.o: CMakeFiles/regex_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/regex_lib.dir/test/compare_struct.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/regex_lib.dir/test/compare_struct.c.o -MF CMakeFiles/regex_lib.dir/test/compare_struct.c.o.d -o CMakeFiles/regex_lib.dir/test/compare_struct.c.o -c /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test/compare_struct.c
-
-CMakeFiles/regex_lib.dir/test/compare_struct.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/regex_lib.dir/test/compare_struct.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test/compare_struct.c > CMakeFiles/regex_lib.dir/test/compare_struct.c.i
-
-CMakeFiles/regex_lib.dir/test/compare_struct.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/regex_lib.dir/test/compare_struct.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test/compare_struct.c -o CMakeFiles/regex_lib.dir/test/compare_struct.c.s
-
 # Object files for target regex_lib
 regex_lib_OBJECTS = \
 "CMakeFiles/regex_lib.dir/src/DFALexicalAnalyzer.c.o" \
 "CMakeFiles/regex_lib.dir/src/NFAToDFA.c.o" \
 "CMakeFiles/regex_lib.dir/src/RegexToNFA.c.o" \
 "CMakeFiles/regex_lib.dir/src/SimplifyRegex.c.o" \
-"CMakeFiles/regex_lib.dir/src/lang.c.o" \
-"CMakeFiles/regex_lib.dir/test/compare_struct.c.o"
+"CMakeFiles/regex_lib.dir/src/lang.c.o"
 
 # External object files for target regex_lib
 regex_lib_EXTERNAL_OBJECTS =
@@ -170,10 +155,9 @@ libregex_lib.a: CMakeFiles/regex_lib.dir/src/NFAToDFA.c.o
 libregex_lib.a: CMakeFiles/regex_lib.dir/src/RegexToNFA.c.o
 libregex_lib.a: CMakeFiles/regex_lib.dir/src/SimplifyRegex.c.o
 libregex_lib.a: CMakeFiles/regex_lib.dir/src/lang.c.o
-libregex_lib.a: CMakeFiles/regex_lib.dir/test/compare_struct.c.o
 libregex_lib.a: CMakeFiles/regex_lib.dir/build.make
 libregex_lib.a: CMakeFiles/regex_lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C static library libregex_lib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C static library libregex_lib.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/regex_lib.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/regex_lib.dir/link.txt --verbose=$(VERBOSE)
 

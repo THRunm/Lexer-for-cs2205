@@ -83,9 +83,9 @@ int main(int argc, char *argv[]) {
     switch (test_case)
     {
         case 1: {
-            fr_regexps=test_fr_1;
-            types=test_types_1;
-            types_num=number_of_test1;
+            fr_regexps=test_fr;
+            types=test_types;
+            types_num=number_of_test;
         }
     }
     struct simpl_regexp **sr_regexps = (struct simpl_regexp **)malloc(types_num * sizeof(struct simpl_regexp *));

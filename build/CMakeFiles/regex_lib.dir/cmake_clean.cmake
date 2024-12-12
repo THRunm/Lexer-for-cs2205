@@ -9,8 +9,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/regex_lib.dir/src/SimplifyRegex.c.o.d"
   "CMakeFiles/regex_lib.dir/src/lang.c.o"
   "CMakeFiles/regex_lib.dir/src/lang.c.o.d"
-  "CMakeFiles/regex_lib.dir/test/compare_struct.c.o"
-  "CMakeFiles/regex_lib.dir/test/compare_struct.c.o.d"
   "libregex_lib.a"
   "libregex_lib.pdb"
 )

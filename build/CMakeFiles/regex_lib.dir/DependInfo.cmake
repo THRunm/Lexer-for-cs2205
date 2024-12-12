@@ -13,7 +13,6 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/RegexToNFA.c" "CMakeFiles/regex_lib.dir/src/RegexToNFA.c.o" "gcc" "CMakeFiles/regex_lib.dir/src/RegexToNFA.c.o.d"
   "/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/SimplifyRegex.c" "CMakeFiles/regex_lib.dir/src/SimplifyRegex.c.o" "gcc" "CMakeFiles/regex_lib.dir/src/SimplifyRegex.c.o.d"
   "/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/src/lang.c" "CMakeFiles/regex_lib.dir/src/lang.c.o" "gcc" "CMakeFiles/regex_lib.dir/src/lang.c.o.d"
-  "/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/test/compare_struct.c" "CMakeFiles/regex_lib.dir/test/compare_struct.c.o" "gcc" "CMakeFiles/regex_lib.dir/test/compare_struct.c.o.d"
   )
 
 # Targets to which this target links.
