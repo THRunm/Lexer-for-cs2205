@@ -96,6 +96,7 @@ bool incs (char a, struct char_set b) {
 
 // 复制一个char_set
 struct char_set copycs(struct char_set c) {
+//TODO 内存未释放
     struct char_set dst = {malloc(sizeof (char) * c.n), c.n};
     for (int i = 0; i < c.n; i ++)
         dst.c[i] = c.c[i];
@@ -224,6 +225,7 @@ struct finite_automata_exinf newAutomataEx(int n, int maxm, int maxn) {
     dst.maxn = maxn;
     dst.srcc = 0;
     dst.mm = 0;
+    //TODO 内存未释放
     dst.src = malloc(sizeof(int) * maxm);
     dst.dst = malloc(sizeof(int) * maxm);
     dst.lb = malloc(sizeof(int) * maxm);
@@ -317,15 +319,15 @@ void availableChar(bool* src, bool* avl, struct star_edges* c) {
 }
 
 // 判断是否包含终止点
-bool judgeEnding(bool* dst, struct finite_automata_exinf* d) {
+int judgeEnding(bool* dst, struct finite_automata_exinf* d) {
     for (int i = 0; i < d -> mm; i ++)
         if (dst[d -> dstt[i]])
-            return true;
-    return false;
+            return i;
+    return -1;
 }
 
 // 暴力建构DFA
-void dfsHash(bool* father, char last, bool* src, struct finite_automata_exinf* d, struct star_edges* c, struct finite_automata_exinf* dst) {
+void dfsHash(bool* father, char last, bool* src, struct finite_automata_exinf* d, struct star_edges* c, struct finite_automata_exinf* dst,int *types) {
     if (detectHash(src, d -> n) >= 0) {
         if (father != NULL)
             addAutomataEx(detectHash(father, d -> n), detectHash(src, d -> n), last, dst);
@@ -336,8 +338,10 @@ void dfsHash(bool* father, char last, bool* src, struct finite_automata_exinf* d
     dst -> n ++;
     if (father != NULL)
         addAutomataEx(detectHash(father, d -> n), detectHash(src, d -> n), last, dst);
-    if (judgeEnding(src, d)) {
+    int k;
+    if (( k=judgeEnding(src, d))>-1) {
         dst -> dstt[dst -> mm] = dst -> n - 1;
+        types[dst -> mm] = k;
         dst -> mm ++;
     }
     bool avl[256];
@@ -348,7 +352,7 @@ void dfsHash(bool* father, char last, bool* src, struct finite_automata_exinf* d
         if (avl[ch]) {
             sbf(dd, d -> n);
             nextStep(src, dd, ch, c);
-            dfsHash(src, ch, dd, d, c, dst);
+            dfsHash(src, ch, dd, d, c, dst,types);
         }
 }
 
@@ -415,7 +419,7 @@ void mergeAutomataEx(struct finite_automata_exinf* dst) {
 }
 
 // 核心功能
-struct finite_automata_exinf NFAtoDFA(struct finite_automata_exinf* d) {
+struct finite_automata_exinf NFAtoDFA(struct finite_automata_exinf* d,int *types) {
     //printfAutomataEx(d);
     initialHash(HASH_N, HASH_M);
     struct star_edges c = buildStar(d);
@@ -424,7 +428,7 @@ struct finite_automata_exinf NFAtoDFA(struct finite_automata_exinf* d) {
     sbf(start, d -> n);
     search(d -> srcc, start, &c);
     struct finite_automata_exinf ans = newAutomataEx(0, EDGES_MAX, ENDS_MAX);
-    dfsHash(NULL, ' ', start, d, &c, &ans);
+    dfsHash(NULL, ' ', start, d, &c, &ans, types);
     mergeAutomataEx(&ans);
     destroyStar(&c);
     destroyHash();
@@ -432,31 +436,11 @@ struct finite_automata_exinf NFAtoDFA(struct finite_automata_exinf* d) {
     return ans;
 }
 
-// 示例函数
-void exampleNFAtoDFA() {
-    // 创建NFA
-    struct finite_automata_exinf a = newAutomataEx(10,EDGES_MAX,ENDS_MAX);
-    // 加入三条边 0 ~ 1: "ab" 1 ~ 2: "ab" 1 ~ 1: "a"
-    // 对于char_set的创建, 提供了mulcs, solocs, emptycs 三个函数, 分别用来创建多个字符、单个字符以及eipsilon
-    addAutomataExx(0, 1, mulcs("ab",2), &a);
-    addAutomataExx(1, 2, mulcs("ab",2), &a);
-    addAutomataEx(1, 1, 'a', &a);
-    addAutomataExx(2,3,emptycs(), &a);
-    addAutomataExx(3, 4, solocs('a'), &a);
-    // 指定初始节点
-    a.srcc = 0;
-    // 指定终止节点
-    a.mm = 1;
-    a.dstt[0] = 4;
-    // 输出整个有限自动机
-    printfAutomataEx(&a);
-    struct finite_automata_exinf b = NFAtoDFA(&a);
-    printfAutomataEx(&b);
-}
+
 
 // 调用这个!
 // 返回一个DFA, 输入NFA个数, 记录NFA存储地址的数组, 各NFA的终止地址, 返回终点个数, 和具体终点是哪些( 需要提前预留足够大小)
-struct finite_automata NFA2DFA(int n, struct finite_automata ** nfa, int* dst, int* dst_number, int* ans_dst) {
+struct finite_automata NFA2DFA(int n, struct finite_automata ** nfa, int* dst, int* dst_number, int** ans_dst,int *types,int *num) {
     struct finite_automata_exinf a = newAutomataEx(1, EDGES_MAX, ENDS_MAX);
     a.srcc = 0;
     a.mm = n;
@@ -467,7 +451,7 @@ struct finite_automata NFA2DFA(int n, struct finite_automata ** nfa, int* dst, i
         a.dstt[i] = a.n + dst[i];
         a.n += nfa[i] -> n;
     }
-    struct finite_automata_exinf ans = NFAtoDFA(&a);
+    struct finite_automata_exinf ans = NFAtoDFA(&a,types);
     struct finite_automata anss;
     anss.n = ans.n;
     anss.m = ans.m;
@@ -475,8 +459,13 @@ struct finite_automata NFA2DFA(int n, struct finite_automata ** nfa, int* dst, i
     anss.dst = ans.dst;
     anss.lb = ans.lb;
     *dst_number = ans.mm;
+    //TODO 请注意这里的内存泄漏有非法写入
+    int *count=malloc(sizeof(int)*4096);
+    for(int i=0;i<4096;i++)
+        count[i]=0;
     for (int i = 0; i < ans.mm; i ++)
-        ans_dst[i] = ans.dstt[i];
+        {num[i]=count[types[i]];
+        ans_dst[types[i]][count[types[i]]++] = ans.dstt[i];}
     free(ans.dstt);
     destroyAutomataEx(&a);
     return anss;

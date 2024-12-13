@@ -105,6 +105,7 @@ const int SIZ = 32;
 struct finite_automata * create_empty_graph() {
   struct finite_automata* g = (struct finite_automata*)malloc(sizeof(struct finite_automata));
   g->n = g->m = 0, g->siz = SIZ;
+  //TODO 内存未释放
   g->src = (int*)calloc(SIZ, sizeof(int));
   g->dst = (int*)calloc(SIZ, sizeof(int));
   g->lb = (struct char_set*)calloc(SIZ, sizeof(struct char_set));
@@ -231,7 +232,7 @@ void print_simpl_regexp_rec(struct simpl_regexp *re) {
   }
 }
 
-
+//TODO 释放内存错误
 void free_frontend_regexp(struct frontend_regexp *fr) {
   if (!fr) return;
 
@@ -268,7 +269,7 @@ void free_frontend_regexp(struct frontend_regexp *fr) {
 
   free(fr); // 最后释放自身
 }
-
+//TODO 释放内存错误
 void free_simpl_regexp(struct simpl_regexp *sr) {
   if (!sr) return;
 

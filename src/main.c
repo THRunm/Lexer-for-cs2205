@@ -72,6 +72,7 @@ void read_inputs(char *file_name, char ***inputs, int *number) {
 
 int main(int argc, char *argv[]) {
     int test_case =atoi(argv[1]);
+    //TODO 这里生成的测试样例的内存没有释放
     initialize_test_types(test_case);
     allocate_and_initialize_test_fr(test_case);
     struct frontend_regexp **fr_regexps ;
@@ -103,25 +104,45 @@ int main(int argc, char *argv[]) {
         print(nfa[i]);
     }
     int dst_number = 0;
-    int *dst = (int *)malloc(types_num * sizeof(int));
+    int **dst = (int **)malloc(types_num * sizeof(int *));
+    for (int i = 0; i < types_num; i++) {
+        dst[i] = (int *)malloc(1024 * sizeof(int));
+    }
+    int *count = (int *)malloc(4096 * sizeof(int));
+    int *num=malloc(sizeof(int)*4096);
     printf("nfa finished\n");
-    struct finite_automata dfa = NFA2DFA(types_num, nfa, end, &dst_number, dst);
+    struct finite_automata dfa = NFA2DFA(types_num, nfa, end, &dst_number, dst,count,num);
     print(&dfa);
     printf("dfa finished\n");
     for (int i=0;i<number;i++)
     {
 
-    struct tokens tokens=tokenize(&dfa, dst, types, types_num, inputs[i]);
+    struct tokens tokens=tokenize(&dfa, dst, types, dst_number, inputs[i],count,num);
     printf("Tokens:\n");
     print_token(tokens);
     free_tokens(&tokens);
     }
     printf("tokens finished\n");
-    free_dfa(&dfa);
     for (int i = 0; i < types_num; i++) {
-        free_simpl_regexp(sr_regexps[i]);
-        free_frontend_regexp(fr_regexps[i]);
+        // free_simpl_regexp(sr_regexps[i]);
+        // free_frontend_regexp(fr_regexps[i]);
         free(nfa[i]);
     }
+    for (int i = 0; i < number; i++) {
+        free(inputs[i]);
+    }
+    free(inputs);
+    free(start);
+    free(end);
+    for (int i = 0; i < dst_number; i++) {
+        free(dst[i]);
+    }
+    free(dst);
+    free(fr_regexps);
+    free(count);
+    free(num);
+    free(sr_regexps);
+    free(nfa);
+    free(types);
     return 0;
 }
