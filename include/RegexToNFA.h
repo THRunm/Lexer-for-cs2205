@@ -14,6 +14,8 @@ struct component* build(struct simpl_regexp* x);
 // build NFA from the given simplified regular expression.
 struct finite_automata * build_nfa(struct simpl_regexp * x, int * src, int * dst);
 
+void free_finite_automata(struct finite_automata * g);
+
 // print the NFA.
 void print(struct finite_automata * g);
 
