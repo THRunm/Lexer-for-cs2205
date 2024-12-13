@@ -69,6 +69,9 @@ void print(struct finite_automata * g) {
 void free_finite_automata(struct finite_automata * g) {
     free(g->src);
     free(g->dst);
+    for (int i = 0; i < g->m; i++) {
+        free(g->lb[i].c);
+    }
     free(g->lb);
     free(g);
 }
