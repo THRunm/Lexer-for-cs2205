@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/main.dir/src/main.c.o CMakeFiles/main.dir/test/test.c.o -o main  libregex_lib.a 

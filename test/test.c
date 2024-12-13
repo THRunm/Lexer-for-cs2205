@@ -12,14 +12,11 @@ struct frontend_regexp **test_fr = NULL;
 void initialize_test_types_1(){
   number_of_test = 1;
   // 分配struct type 的内存
-  test_types = (struct type *)malloc(sizeof(struct type)*2);
+  test_types = (struct type *)malloc(sizeof(struct type));
 
-  // 分配第一个 name 指针的内存，存储 2 个字符串的指针
-  test_types->name = (char **)malloc(sizeof(char *)*2);
 
-  // 分配每个字符串的空间，并赋值
-  test_types->name[0] = (char *)malloc(50 * sizeof(char));
-  strcpy(test_types->name[0], "If"); // 设置第一个字符串值
+  test_types[0].name = (char *)malloc(50 * sizeof(char));
+  strcpy(test_types[0].name, "If"); // 设置第一个字符串值
 
   test_types->id = 1;
 }
@@ -81,15 +78,13 @@ void initialize_test_types_6(){
   number_of_test = 2;
   test_types = (struct type *)malloc(sizeof(struct type)*2);
 
-  // 分配第一个 name 指针的内存，存储 2 个字符串的指针
-  test_types->name = (char **)malloc(sizeof(char *));
 
   // 分配每个字符串的空间，并赋值
-  test_types->name[0] = (char *)malloc(50 * sizeof(char));
-  strcpy(test_types->name[0], "while"); // 设置第一个字符串值
-  test_types->name[0] = (char *)malloc(50 * sizeof(char));
-  strcpy(test_types->name[0], "do_while"); // 设置第一个字符串值
-  test_types->id = 24;
+  test_types[0].name = (char *)malloc(50 * sizeof(char));
+  strcpy(test_types[0].name, "while"); // 设置第一个字符串值
+ ( test_types+1)->name = (char *)malloc(50 * sizeof(char));
+  strcpy(test_types[1].name, "do_while"); // 设置第一个字符串值
+  test_types[1].id = 24;
 }
 void initialize_test_types_7(){
   // 分配 2 个 struct type 的内存
@@ -144,6 +139,16 @@ void initialize_test_types_10(){
   test_types->id = 24;
 }
 
+void initialize_test_types_11(){
+test_types = (struct type *)malloc(sizeof(struct type)*2);
+test_types[0].name = (char *)malloc(50 * sizeof(char));
+strcpy(test_types[0].name, "A");
+test_types[0].id = 1;
+test_types[1].name = (char *)malloc(50 * sizeof(char));
+strcpy(test_types[1].name, "B");
+test_types[1].id = 2;
+};
+
 void initialize_test_types(int test_case)
 {
    switch(test_case) {
@@ -177,6 +182,9 @@ void initialize_test_types(int test_case)
       case 10:
          initialize_test_types_10();
          break;
+      case 11:
+         initialize_test_types_11();
+         break;
    }
 }
 
@@ -184,11 +192,12 @@ void allocate_and_initialize_test_fr_1(){
    test_fr = (struct frontend_regexp **)malloc(1 * sizeof(struct frontend_regexp *));
    struct char_set whitespace = {" \t", 2}; // \s: space and tab
    struct char_set non_rparen = {"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*-_=+[]{}|;:',.<>?/`~ ()", 95};
+   struct char_set no_rparen = {"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*-_=+[]{}|;:',.<>?/`~ ()", 95};
 
    struct frontend_regexp *if_keyword = TFr_String("if");
    struct frontend_regexp *optional_whitespace = TFr_Star(TFr_CharSet(&whitespace));
    struct frontend_regexp *left_paren = TFr_SingleChar('(');
-   struct frontend_regexp *condition = TFr_Star(TFr_CharSet(&non_rparen));
+   struct frontend_regexp *condition = TFr_Star(TFr_CharSet(&no_rparen));
    struct frontend_regexp *right_paren = TFr_SingleChar(')');
    struct frontend_regexp *left_brace = TFr_SingleChar('{');
    struct frontend_regexp *body = TFr_Star(TFr_CharSet(&non_rparen));
@@ -438,10 +447,10 @@ void allocate_and_initialize_test_fr_6() {
    // while loop: "while (<cond>) { <body> }"
    struct frontend_regexp *while_keyword = TFr_String("while");
    struct frontend_regexp *open_paren = TFr_SingleChar('(');
-   struct frontend_regexp *cond = TFr_CharSet(&(struct char_set){ "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!&|=<>+-*/%", 80 });
+   struct frontend_regexp *cond = TFr_Plus(TFr_CharSet(&(struct char_set){ "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!&|=<>+-*/%", 100 }));
    struct frontend_regexp *close_paren = TFr_SingleChar(')');
    struct frontend_regexp *open_brace = TFr_SingleChar('{');
-   struct frontend_regexp *body = TFr_CharSet(&(struct char_set){ "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789; \\t\\n", 60 });
+   struct frontend_regexp *body = TFr_Star(TFr_CharSet(&(struct char_set){ "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789;+-*/%= \\t\\n", 80 }));
    struct frontend_regexp *close_brace = TFr_SingleChar('}');
 
    test_fr[0] = TFr_Concat(
@@ -491,6 +500,15 @@ void allocate_and_initialize_test_fr_10(){
    test_fr = (struct frontend_regexp **)malloc(1 * sizeof(struct frontend_regexp *));
 }
 
+void allocate_and_initialize_test_fr_11(){
+    test_fr = (struct frontend_regexp **)malloc(2 * sizeof(struct frontend_regexp *));
+    struct frontend_regexp *ab = TFr_String("ab");
+    struct frontend_regexp *c_ = TFr_Star(TFr_String("c"));
+    struct frontend_regexp *abc = TFr_Concat(ab, c_);
+    test_fr[0] = abc;
+    test_fr[1]=ab;
+}
+
 void allocate_and_initialize_test_fr(int test_case) {
    switch (test_case) {
    case 1:
@@ -523,5 +541,8 @@ void allocate_and_initialize_test_fr(int test_case) {
    case 10:
          allocate_and_initialize_test_fr_10();
          break;
+    case 11:
+            allocate_and_initialize_test_fr_11();
+            break;
    }
 }

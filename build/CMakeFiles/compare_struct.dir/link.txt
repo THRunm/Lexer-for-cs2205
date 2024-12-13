@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/compare_struct.dir/test/compare_struct.c.o -o compare_struct  libregex_lib.a 
