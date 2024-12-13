@@ -183,12 +183,8 @@ void initialize_test_types(int test_case)
 void allocate_and_initialize_test_fr_1(){
    test_fr = (struct frontend_regexp **)malloc(1 * sizeof(struct frontend_regexp *));
    struct char_set whitespace = {" \t", 2}; // \s: space and tab
-<<<<<<< HEAD
-   struct char_set non_rparen = {"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*-_=+[]{}|;:',.<>?/`~()", 95};
-=======
    struct char_set non_rparen = {"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*-_=+[]{}|;:',.<>?/`~ ()", 95};
    struct char_set no_rparen = {"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*-_=+[]{}|;:',.<>?/`~ ()", 95};
->>>>>>> e178f3be59eef23ee9ad3da2b0770a23cb569a73
 
    struct frontend_regexp *if_keyword = TFr_String("if");
    struct frontend_regexp *optional_whitespace = TFr_Star(TFr_CharSet(&whitespace));
