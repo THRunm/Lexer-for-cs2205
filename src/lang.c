@@ -238,55 +238,54 @@ void free_frontend_regexp(struct frontend_regexp *fr) {
 
   switch (fr->t) {
   case T_FR_CHAR_SET:
-    free(fr->d.CHAR_SET.c); // 释放 char_set 中的字符指针
+    if(fr->d.CHAR_SET.c) free(fr->d.CHAR_SET.c); // 释放 char_set 中的字符指针
     break;
   case T_FR_OPTIONAL:
-    free_frontend_regexp(fr->d.OPTION.r); // 递归释放子正则
+    if(fr->d.OPTION.r) free_frontend_regexp(fr->d.OPTION.r); // 递归释放子正则
     break;
   case T_FR_STAR:
-    free_frontend_regexp(fr->d.STAR.r); // 递归释放子正则
+    if(fr->d.STAR.r)free_frontend_regexp(fr->d.STAR.r); // 递归释放子正则
     break;
   case T_FR_PLUS:
-    free_frontend_regexp(fr->d.PLUS.r); // 递归释放子正则
+    if(fr->d.PLUS.r)free_frontend_regexp(fr->d.PLUS.r); // 递归释放子正则
     break;
   case T_FR_STRING:
-    free(fr->d.STRING.s); // 释放字符串
+    if(fr->d.STRING.s)free(fr->d.STRING.s); // 释放字符串
     break;
   case T_FR_SINGLE_CHAR:
     // SINGLE_CHAR 不需要释放额外资源
     break;
   case T_FR_UNION:
-    free_frontend_regexp(fr->d.UNION.r1); // 递归释放第一个子正则
-    free_frontend_regexp(fr->d.UNION.r2); // 递归释放第二个子正则
+    if(fr->d.UNION.r1)free_frontend_regexp(fr->d.UNION.r1); // 递归释放第一个子正则
+    if(fr->d.UNION.r2)free_frontend_regexp(fr->d.UNION.r2); // 递归释放第二个子正则
     break;
   case T_FR_CONCAT:
-    free_frontend_regexp(fr->d.CONCAT.r1); // 递归释放第一个子正则
-    free_frontend_regexp(fr->d.CONCAT.r2); // 递归释放第二个子正则
+    if(fr->d.CONCAT.r1) free_frontend_regexp(fr->d.CONCAT.r1); // 递归释放第一个子正则
+    if(fr->d.CONCAT.r2)free_frontend_regexp(fr->d.CONCAT.r2); // 递归释放第二个子正则
     break;
   default:
     break;
   }
-
   free(fr); // 最后释放自身
+  fr = NULL;
 }
-//TODO 释放内存错误
 void free_simpl_regexp(struct simpl_regexp *sr) {
   if (!sr) return;
 
   switch (sr->t) {
   case T_S_CHAR_SET:
-    free(sr->d.CHAR_SET.c); // 释放 char_set 中的字符指针
+    if(sr->d.CHAR_SET.c)free(sr->d.CHAR_SET.c); // 释放 char_set 中的字符指针
     break;
   case T_S_STAR:
-    free_simpl_regexp(sr->d.STAR.r); // 递归释放子正则
+    if(sr->d.STAR.r)free_simpl_regexp(sr->d.STAR.r); // 递归释放子正则
     break;
   case T_S_UNION:
-    free_simpl_regexp(sr->d.UNION.r1); // 递归释放第一个子正则
-    free_simpl_regexp(sr->d.UNION.r2); // 递归释放第二个子正则
+    if(sr->d.UNION.r1)free_simpl_regexp(sr->d.UNION.r1); // 递归释放第一个子正则
+    if(sr->d.UNION.r2)free_simpl_regexp(sr->d.UNION.r2); // 递归释放第二个子正则
     break;
   case T_S_CONCAT:
-    free_simpl_regexp(sr->d.CONCAT.r1); // 递归释放第一个子正则
-    free_simpl_regexp(sr->d.CONCAT.r2); // 递归释放第二个子正则
+    if(sr->d.CONCAT.r1)free_simpl_regexp(sr->d.CONCAT.r1); // 递归释放第一个子正则
+    if(sr->d.CONCAT.r2)free_simpl_regexp(sr->d.CONCAT.r2); // 递归释放第二个子正则
     break;
   case T_S_EMPTY_STR:
     // EMPTY_STR 不需要释放额外资源
@@ -296,5 +295,6 @@ void free_simpl_regexp(struct simpl_regexp *sr) {
   }
 
   free(sr); // 最后释放自身
+  sr = NULL;
 }
 
