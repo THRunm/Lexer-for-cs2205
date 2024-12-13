@@ -184,11 +184,12 @@ void allocate_and_initialize_test_fr_1(){
    test_fr = (struct frontend_regexp **)malloc(1 * sizeof(struct frontend_regexp *));
    struct char_set whitespace = {" \t", 2}; // \s: space and tab
    struct char_set non_rparen = {"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*-_=+[]{}|;:',.<>?/`~ ()", 95};
+   struct char_set no_rparen = {"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*-_=+[]{}|;:',.<>?/`~ ()", 95};
 
    struct frontend_regexp *if_keyword = TFr_String("if");
    struct frontend_regexp *optional_whitespace = TFr_Star(TFr_CharSet(&whitespace));
    struct frontend_regexp *left_paren = TFr_SingleChar('(');
-   struct frontend_regexp *condition = TFr_Star(TFr_CharSet(&non_rparen));
+   struct frontend_regexp *condition = TFr_Star(TFr_CharSet(&no_rparen));
    struct frontend_regexp *right_paren = TFr_SingleChar(')');
    struct frontend_regexp *left_brace = TFr_SingleChar('{');
    struct frontend_regexp *body = TFr_Star(TFr_CharSet(&non_rparen));
