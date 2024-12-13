@@ -39,6 +39,8 @@ struct _finite_automata * build_next_state(struct finite_automata *dfa,const int
 // Function to perform lexical analysis using the DFA
 struct tokens tokenize(struct finite_automata *intput_dfa, int **types,struct type *type, int types_num, const char *input,int *count,int *num);
 
+void free_types(struct type *types, int n);
+
 void print_token(struct tokens tokens);
 
 #endif //GRAMMAR_PARSER_FOR_CS2205_DFALEXICALANALYZER_H

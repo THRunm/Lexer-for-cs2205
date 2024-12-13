@@ -77,7 +77,7 @@ int main(int argc, char *argv[]) {
     allocate_and_initialize_test_fr(test_case);
     struct frontend_regexp **fr_regexps ;
     struct type *types;
-    int types_num;
+    int types_num=1;
     char **inputs;
     int number;
     read_inputs(argv[2], &inputs, &number);
@@ -104,8 +104,8 @@ int main(int argc, char *argv[]) {
         print(nfa[i]);
     }
     int dst_number = 0;
-    int **dst = (int **)malloc(types_num * sizeof(int *));
-    for (int i = 0; i < types_num; i++) {
+    int **dst = (int **)malloc(16*types_num * sizeof(int *));
+    for (int i = 0; i < types_num*16; i++) {
         dst[i] = (int *)malloc(1024 * sizeof(int));
     }
     int *count = (int *)malloc(4096 * sizeof(int));
@@ -124,17 +124,18 @@ int main(int argc, char *argv[]) {
     }
     printf("tokens finished\n");
     for (int i = 0; i < types_num; i++) {
-        free_simpl_regexp(sr_regexps[i]);
-        free_frontend_regexp(fr_regexps[i]);
+        // free_simpl_regexp(sr_regexps[i]);
+        // free_frontend_regexp(fr_regexps[i]);
         free(nfa[i]);
     }
+
     for (int i = 0; i < number; i++) {
         free(inputs[i]);
     }
     free(inputs);
     free(start);
     free(end);
-    for (int i = 0; i < dst_number; i++) {
+    for (int i = 0; i < 16*types_num ; i++) {
         free(dst[i]);
     }
     free(dst);
@@ -143,6 +144,7 @@ int main(int argc, char *argv[]) {
     free(num);
     free(sr_regexps);
     free(nfa);
-    free(types);
+    free_types(test_types,types_num);
+    free_for_dfa(&dfa);
     return 0;
 }

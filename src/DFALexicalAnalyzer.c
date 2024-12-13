@@ -148,6 +148,14 @@ struct tokens tokenize(struct finite_automata *intput_dfa,int ** types,struct ty
     return result;
 }
 
+// Function to free the types
+void free_types(struct type *types, int n) {
+    for (int i = 0; i < n; i++) {
+        free(types[i].name);
+    }
+    free(types);
+}
+
 void print_token(struct tokens tokens) {
     for (int i = 0; i < tokens.n; i++) {
         printf("Token: %s, Type: %s\n", tokens.tokens[i].value, tokens.tokens[i].type->name);

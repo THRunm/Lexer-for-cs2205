@@ -96,7 +96,6 @@ bool incs (char a, struct char_set b) {
 
 // 复制一个char_set
 struct char_set copycs(struct char_set c) {
-//TODO 内存未释放
     struct char_set dst = {malloc(sizeof (char) * c.n), c.n};
     for (int i = 0; i < c.n; i ++)
         dst.c[i] = c.c[i];
@@ -183,9 +182,8 @@ void destroyStar(struct star_edges* a) {
     free(a -> first);
     free(a -> dst);
     free(a -> next);
-    for (int i = 1; i < a -> c; i ++) {
+    for (int i = 0; i < a -> c; i ++)
         free(a -> lb[i].c);
-    }
     free(a -> lb);
 }
 
@@ -467,8 +465,17 @@ struct finite_automata NFA2DFA(int n, struct finite_automata ** nfa, int* dst, i
         {num[i]=count[types[i]];
         ans_dst[types[i]][count[types[i]]++] = ans.dstt[i];}
     free(ans.dstt);
+    free(count);
     destroyAutomataEx(&a);
     return anss;
 }
+void free_for_dfa(struct finite_automata * dfa) {
+    free(dfa -> src);
+    free(dfa -> dst);
+    for (int i = 0; i < dfa -> m; i ++)
+        free(dfa -> lb[i].c);
+    free(dfa -> lb);
+}
+
 
 #endif //GRAMMAR_PARSER_FOR_CS2205_NFATODFA_H
