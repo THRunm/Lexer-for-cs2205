@@ -239,6 +239,7 @@ void free_frontend_regexp(struct frontend_regexp *fr) {
   switch (fr->t) {
   case T_FR_CHAR_SET:
     if(fr->d.CHAR_SET.c) free(fr->d.CHAR_SET.c); // 释放 char_set 中的字符指针
+
     break;
   case T_FR_OPTIONAL:
     if(fr->d.OPTION.r) free_frontend_regexp(fr->d.OPTION.r); // 递归释放子正则
@@ -269,12 +270,17 @@ void free_frontend_regexp(struct frontend_regexp *fr) {
   free(fr); // 最后释放自身
   fr = NULL;
 }
-void free_simpl_regexp(struct simpl_regexp *sr) {
+void free_simpl_regexp(struct simpl_regexp *sr)  {
   if (!sr) return;
 
   switch (sr->t) {
   case T_S_CHAR_SET:
-    if(sr->d.CHAR_SET.c)free(sr->d.CHAR_SET.c); // 释放 char_set 中的字符指针
+    if(sr->d.CHAR_SET.c)
+    {
+    free(sr->d.CHAR_SET.c);
+      sr->d.CHAR_SET.c = NULL;
+    }
+    // 释放 char_set 中的字符指针
     break;
   case T_S_STAR:
     if(sr->d.STAR.r)free_simpl_regexp(sr->d.STAR.r); // 递归释放子正则
