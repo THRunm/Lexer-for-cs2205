@@ -6,7 +6,7 @@
 #define GRAMMAR_PARSER_FOR_CS2205_DFALEXICALANALYZER_H
 
 struct type {
-    char **name;
+    char *name;
     int id;
 };
 
