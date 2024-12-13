@@ -111,11 +111,10 @@ int main(int argc, char *argv[]) {
     printf("dfa finished\n");
     for (int i=0;i<number;i++)
     {
-
-    struct tokens tokens=tokenize(&dfa, dst, types, dst_number, inputs[i]);
-    printf("Tokens:\n");
-    print_token(tokens);
-    free_tokens(&tokens);
+        struct tokens tokens=tokenize(&dfa, dst, types, dst_number, inputs[i]);
+        printf("Tokens:\n");
+        print_token(tokens);
+        free_tokens(&tokens);
     }
     printf("tokens finished\n");
     for (int i = 0; i < types_num; i++) {
