@@ -114,6 +114,7 @@ int main(int argc, char *argv[]) {
     struct finite_automata dfa = NFA2DFA(types_num, nfa, end, &dst_number, dst,count,num);
     print(&dfa);
     printf("dfa finished\n");
+    printf("Line Number %d\n",number);
     for (int i=0;i<number;i++)
     {
 

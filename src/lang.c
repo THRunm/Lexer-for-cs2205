@@ -238,7 +238,9 @@ void free_frontend_regexp(struct frontend_regexp *fr) {
 
   switch (fr->t) {
   case T_FR_CHAR_SET:
-    if(fr->d.CHAR_SET.c) free(fr->d.CHAR_SET.c); // 释放 char_set 中的字符指针
+    if(fr->d.CHAR_SET.c) { free(fr->d.CHAR_SET.c);
+    fr->d.CHAR_SET.c = NULL;
+    }// 释放 char_set 中的字符指针
 
     break;
   case T_FR_OPTIONAL:
