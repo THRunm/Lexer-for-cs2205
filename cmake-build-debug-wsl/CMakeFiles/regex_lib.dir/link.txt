@@ -1,2 +1,0 @@
-/usr/bin/ar qc libregex_lib.a CMakeFiles/regex_lib.dir/src/DFALexicalAnalyzer.c.o CMakeFiles/regex_lib.dir/src/NFAToDFA.c.o CMakeFiles/regex_lib.dir/src/RegexToNFA.c.o CMakeFiles/regex_lib.dir/src/SimplifyRegex.c.o CMakeFiles/regex_lib.dir/src/lang.c.o
-/usr/bin/ranlib libregex_lib.a
