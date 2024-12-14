@@ -61,8 +61,11 @@ void print_simpl_regexp(struct simpl_regexp *re);
 void print_frontend_regexp_rec(struct frontend_regexp *re);
 void print_simpl_regexp_rec(struct simpl_regexp *re);
 
-void free_frontend_regexp(struct frontend_regexp *fr);
-void free_simpl_regexp(struct simpl_regexp *sr);
+void free_frontend_regexp(struct frontend_regexp **fr);
+void free_simpl_regexp(struct simpl_regexp **sr);
+
+void free_frontend_regexp_rec(struct frontend_regexp *fr);
+void free_simpl_regexp_rec(struct simpl_regexp *sr);
 
 struct finite_automata {
   int n; /* number of vertices, id of vertices are: 0, 1, ..., (n - 1) */

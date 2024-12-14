@@ -232,77 +232,129 @@ void print_simpl_regexp_rec(struct simpl_regexp *re) {
   }
 }
 
-//TODO 释放内存错误
-void free_frontend_regexp(struct frontend_regexp *fr) {
+void free_frontend_regexp(struct frontend_regexp **fr) {
+  if (!fr || !*fr) return;
+  *fr = NULL;  // 通过二级指针修改原指针
+}
+
+void free_frontend_regexp_rec(struct frontend_regexp *fr) {
   if (!fr) return;
 
   switch (fr->t) {
   case T_FR_CHAR_SET:
-    if(fr->d.CHAR_SET.c) { free(fr->d.CHAR_SET.c);
-    fr->d.CHAR_SET.c = NULL;
-    }// 释放 char_set 中的字符指针
-
+    if (fr->d.CHAR_SET.c) {
+      //free(fr->d.CHAR_SET.c);
+      fr->d.CHAR_SET.c = NULL;
+    }
     break;
   case T_FR_OPTIONAL:
-    if(fr->d.OPTION.r) free_frontend_regexp(fr->d.OPTION.r); // 递归释放子正则
+    if (fr->d.OPTION.r) {
+      free_frontend_regexp_rec(fr->d.OPTION.r);  // 使用_rec版本避免重复释放
+      free(fr->d.OPTION.r);
+      fr->d.OPTION.r = NULL;
+    }
     break;
   case T_FR_STAR:
-    if(fr->d.STAR.r)free_frontend_regexp(fr->d.STAR.r); // 递归释放子正则
+    if (fr->d.STAR.r) {
+      free_frontend_regexp_rec(fr->d.STAR.r);
+      free(fr->d.STAR.r);
+      fr->d.STAR.r = NULL;
+    }
     break;
   case T_FR_PLUS:
-    if(fr->d.PLUS.r)free_frontend_regexp(fr->d.PLUS.r); // 递归释放子正则
+    if (fr->d.PLUS.r) {
+      free_frontend_regexp_rec(fr->d.PLUS.r);
+      free(fr->d.PLUS.r);
+      fr->d.PLUS.r = NULL;
+    }
     break;
   case T_FR_STRING:
-    if(fr->d.STRING.s)free(fr->d.STRING.s); // 释放字符串
+    if (fr->d.STRING.s) {
+      //free(fr->d.STRING.s);
+      fr->d.STRING.s = NULL;
+    }
     break;
   case T_FR_SINGLE_CHAR:
-    // SINGLE_CHAR 不需要释放额外资源
     break;
   case T_FR_UNION:
-    if(fr->d.UNION.r1)free_frontend_regexp(fr->d.UNION.r1); // 递归释放第一个子正则
-    if(fr->d.UNION.r2)free_frontend_regexp(fr->d.UNION.r2); // 递归释放第二个子正则
+    if (fr->d.UNION.r1) {
+      free_frontend_regexp_rec(fr->d.UNION.r1);
+      free(fr->d.UNION.r1);
+      fr->d.UNION.r1 = NULL;
+    }
+    if (fr->d.UNION.r2) {
+      free_frontend_regexp_rec(fr->d.UNION.r2);
+      free(fr->d.UNION.r2);
+      fr->d.UNION.r2 = NULL;
+    }
     break;
   case T_FR_CONCAT:
-    if(fr->d.CONCAT.r1) free_frontend_regexp(fr->d.CONCAT.r1); // 递归释放第一个子正则
-    if(fr->d.CONCAT.r2)free_frontend_regexp(fr->d.CONCAT.r2); // 递归释放第二个子正则
+    if (fr->d.CONCAT.r1) {
+      free_frontend_regexp_rec(fr->d.CONCAT.r1);
+      free(fr->d.CONCAT.r1);
+      fr->d.CONCAT.r1 = NULL;
+    }
+    if (fr->d.CONCAT.r2) {
+      free_frontend_regexp_rec(fr->d.CONCAT.r2);
+      free(fr->d.CONCAT.r2);
+      fr->d.CONCAT.r2 = NULL;
+    }
     break;
   default:
     break;
   }
-  free(fr); // 最后释放自身
-  fr = NULL;
 }
-void free_simpl_regexp(struct simpl_regexp *sr)  {
+
+void free_simpl_regexp(struct simpl_regexp **sr) {
+  if (!sr || !*sr) return;
+  *sr = NULL;
+}
+
+void free_simpl_regexp_rec(struct simpl_regexp *sr) {
   if (!sr) return;
 
   switch (sr->t) {
   case T_S_CHAR_SET:
-    if(sr->d.CHAR_SET.c)
-    {
-    free(sr->d.CHAR_SET.c);
+    if (sr->d.CHAR_SET.c) {
+      //free(sr->d.CHAR_SET.c);
       sr->d.CHAR_SET.c = NULL;
     }
-    // 释放 char_set 中的字符指针
     break;
   case T_S_STAR:
-    if(sr->d.STAR.r)free_simpl_regexp(sr->d.STAR.r); // 递归释放子正则
+    if (sr->d.STAR.r) {
+      free_simpl_regexp_rec(sr->d.STAR.r);
+      free(sr->d.STAR.r);
+      sr->d.STAR.r = NULL;
+    }
     break;
   case T_S_UNION:
-    if(sr->d.UNION.r1)free_simpl_regexp(sr->d.UNION.r1); // 递归释放第一个子正则
-    if(sr->d.UNION.r2)free_simpl_regexp(sr->d.UNION.r2); // 递归释放第二个子正则
+    if (sr->d.UNION.r1) {
+      free_simpl_regexp_rec(sr->d.UNION.r1);
+      free(sr->d.UNION.r1);
+      sr->d.UNION.r1 = NULL;
+    }
+    if (sr->d.UNION.r2) {
+      free_simpl_regexp_rec(sr->d.UNION.r2);
+      free(sr->d.UNION.r2);
+      sr->d.UNION.r2 = NULL;
+    }
     break;
   case T_S_CONCAT:
-    if(sr->d.CONCAT.r1)free_simpl_regexp(sr->d.CONCAT.r1); // 递归释放第一个子正则
-    if(sr->d.CONCAT.r2)free_simpl_regexp(sr->d.CONCAT.r2); // 递归释放第二个子正则
+    if (sr->d.CONCAT.r1) {
+      free_simpl_regexp_rec(sr->d.CONCAT.r1);
+      free(sr->d.CONCAT.r1);
+      sr->d.CONCAT.r1 = NULL;
+    }
+    if (sr->d.CONCAT.r2) {
+      free_simpl_regexp_rec(sr->d.CONCAT.r2);
+      free(sr->d.CONCAT.r2);
+      sr->d.CONCAT.r2 = NULL;
+    }
     break;
   case T_S_EMPTY_STR:
-    // EMPTY_STR 不需要释放额外资源
     break;
   default:
     break;
   }
-
-  free(sr); // 最后释放自身
-  sr = NULL;
 }
 

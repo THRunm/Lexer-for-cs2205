@@ -124,11 +124,10 @@ int main(int argc, char *argv[]) {
     }
     printf("tokens finished\n");
     for (int i = 0; i < types_num; i++) {
-         //free_simpl_regexp(sr_regexps[i]);
-         //free_frontend_regexp(fr_regexps[i]);
-        //free_finite_automata(nfa[i]);
+        free_simpl_regexp(&sr_regexps[i]);
+        free_frontend_regexp(&fr_regexps[i]);
+        free_finite_automata(nfa[i]);
     }
-
     for (int i = 0; i < number; i++) {
         free(inputs[i]);
     }

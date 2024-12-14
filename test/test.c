@@ -120,30 +120,30 @@ void initialize_test_types_9() {
 void initialize_test_types_10() {
   number_of_test = 11;
   // 分配 2 个 struct type 的内存
-  test_types = (struct type *) malloc(sizeof(struct type) * 10);
+  test_types = (struct type *) malloc(sizeof(struct type) * 11);
   // 分配每个字符串的空间，并赋值
   test_types[0].name = (char *) malloc(50 * sizeof(char));
-  strcpy(test_types[0].name, "a");// 设置第一个字符串值
+  strcpy(test_types[0].name, "Identifier");// 设置第一个字符串值
   test_types[1].name = (char *) malloc(50 * sizeof(char));
-  strcpy(test_types[1].name, "b");// 设置第二个字符串值
+  strcpy(test_types[1].name, "Interger");// 设置第二个字符串值
   test_types[2].name = (char *) malloc(50 * sizeof(char));
-  strcpy(test_types[2].name, "c");// 设置第三个字符串值
+  strcpy(test_types[2].name, "Relational operators");// 设置第三个字符串值
   test_types[3].name = (char *) malloc(50 * sizeof(char));
-  strcpy(test_types[3].name, "d");// 设置第四个字符串值
+  strcpy(test_types[3].name, "Space and tab");// 设置第四个字符串值
   test_types[4].name = (char *) malloc(50 * sizeof(char));
-  strcpy(test_types[4].name, "e");// 设置第五个字符串值
+  strcpy(test_types[4].name, "Int|Var|Char");// 设置第五个字符串值
   test_types[5].name = (char *) malloc(50 * sizeof(char));
-  strcpy(test_types[5].name, "f");// 设置第一个字符串值
+  strcpy(test_types[5].name, "Assignment operators");// 设置第一个字符串值
   test_types[6].name = (char *) malloc(50 * sizeof(char));
-  strcpy(test_types[6].name, "g");// 设置第二个字符串值
+  strcpy(test_types[6].name, "Arithmetic operators");// 设置第二个字符串值
   test_types[7].name = (char *) malloc(50 * sizeof(char));
-  strcpy(test_types[7].name, "h");// 设置第三个字符串值
+  strcpy(test_types[7].name, "Bracket");// 设置第三个字符串值
   test_types[8].name = (char *) malloc(50 * sizeof(char));
-  strcpy(test_types[8].name, "i");// 设置第四个字符串值
+  strcpy(test_types[8].name, "String");// 设置第四个字符串值
   test_types[9].name = (char *) malloc(50 * sizeof(char));
-  strcpy(test_types[9].name, "j");// 设置第五个字符串值
+  strcpy(test_types[9].name, "Exegesis");// 设置第五个字符串值
   test_types[10].name = (char *) malloc(50 * sizeof(char));
-  strcpy(test_types[10].name, "j");// 设置第五个字符串值
+  strcpy(test_types[10].name, ";");// 设置第五个字符串值
   test_types[0].id = 1;
   test_types[1].id = 2;
   test_types[2].id = 3;
@@ -551,7 +551,7 @@ void allocate_and_initialize_test_fr_10() {
     
     // 4. 空白字符: [ ]+
     struct char_set *whitespace = (struct char_set *)malloc(sizeof(struct char_set));
-    whitespace->c = strdup(" ");
+    whitespace->c = strdup(" \t\n");
     whitespace->n = strlen(whitespace->c);
     test_fr[3] = TFr_Plus(TFr_CharSet(whitespace));
     
@@ -612,7 +612,7 @@ void allocate_and_initialize_test_fr_10() {
         TFr_Star(TFr_CharSet(comment_chars))
     );
 
-    // 11. 注释: 分号
+    // 11. 分号
     test_fr[10] = TFr_SingleChar(';');
 } // 一套简化的c语言语法
 

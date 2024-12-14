@@ -125,8 +125,8 @@ struct tokens tokenize(struct finite_automata *intput_dfa,int ** types,struct ty
             struct token t;
             t.value = token;
             t.type = token_type;
-            result.n++;result.tokens[result.n] = t;
-
+            result.tokens[result.n] = t;
+            result.n++;
             if (result.n == capacity) {
                 capacity *= 2;
                 struct token *new_tokens = realloc(result.tokens, sizeof(struct token) * capacity);
