@@ -118,7 +118,7 @@ void initialize_test_types_9() {
   test_types[4].id = 5;
 }
 void initialize_test_types_10() {
-  number_of_test = 10;
+  number_of_test = 11;
   // 分配 2 个 struct type 的内存
   test_types = (struct type *) malloc(sizeof(struct type) * 10);
   // 分配每个字符串的空间，并赋值
@@ -142,6 +142,8 @@ void initialize_test_types_10() {
   strcpy(test_types[8].name, "i");// 设置第四个字符串值
   test_types[9].name = (char *) malloc(50 * sizeof(char));
   strcpy(test_types[9].name, "j");// 设置第五个字符串值
+  test_types[10].name = (char *) malloc(50 * sizeof(char));
+  strcpy(test_types[10].name, "j");// 设置第五个字符串值
   test_types[0].id = 1;
   test_types[1].id = 2;
   test_types[2].id = 3;
@@ -152,6 +154,7 @@ void initialize_test_types_10() {
   test_types[7].id = 8;
   test_types[8].id = 9;
   test_types[9].id = 10;
+  test_types[10].id = 11;
 }
 
 void initialize_test_types(int test_case) {
@@ -508,18 +511,111 @@ void allocate_and_initialize_test_fr_9() {
 }// 体现匹配字符串长度第一优先，匹配规则次序第二优先
 
 void allocate_and_initialize_test_fr_10() {
-  test_fr = (struct frontend_regexp **) malloc(10 * sizeof(struct frontend_regexp *));
-  test_fr[0] = TFr_SingleChar('a');
-  test_fr[1] = TFr_SingleChar('b');
-  test_fr[2] = TFr_SingleChar('c');
-  test_fr[3] = TFr_SingleChar('d');
-  test_fr[4] = TFr_SingleChar('e');
-  test_fr[5] = TFr_SingleChar('f');
-  test_fr[6] = TFr_SingleChar('g');
-  test_fr[7] = TFr_SingleChar('h');
-  test_fr[8] = TFr_SingleChar('i');
-  test_fr[9] = TFr_SingleChar('j');
-}// 体现NFA转DFA
+    test_fr = (struct frontend_regexp **) malloc(11 * sizeof(struct frontend_regexp *));
+    
+    // 1. 标识符: [a-zA-Z_][a-zA-Z0-9_]*
+    struct char_set *first_char = (struct char_set *)malloc(sizeof(struct char_set));
+    first_char->c = strdup("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_");
+    first_char->n = strlen(first_char->c);
+    
+    struct char_set *follow_chars = (struct char_set *)malloc(sizeof(struct char_set));
+    follow_chars->c = strdup("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_");
+    follow_chars->n = strlen(follow_chars->c);
+    
+    struct frontend_regexp *follow_part = TFr_Star(TFr_CharSet(follow_chars));
+    test_fr[0] = TFr_Concat(TFr_CharSet(first_char), follow_part);
+    
+    // 2. 整数: [0-9]+
+    struct char_set *digits = (struct char_set *)malloc(sizeof(struct char_set));
+    digits->c = strdup("0123456789");
+    digits->n = strlen(digits->c);
+    test_fr[1] = TFr_Plus(TFr_CharSet(digits));
+    
+    // 3. 关系运算符: ==|!=|<=|>=|<|>
+    test_fr[2] = TFr_Union(
+        TFr_Union(
+            TFr_String("=="),
+            TFr_String("!=")
+        ),
+        TFr_Union(
+            TFr_Union(
+                TFr_String("<="),
+                TFr_String(">=")
+            ),
+            TFr_Union(
+                TFr_SingleChar('<'),
+                TFr_SingleChar('>')
+            )
+        )
+    );
+    
+    // 4. 空白字符: [ ]+
+    struct char_set *whitespace = (struct char_set *)malloc(sizeof(struct char_set));
+    whitespace->c = strdup(" ");
+    whitespace->n = strlen(whitespace->c);
+    test_fr[3] = TFr_Plus(TFr_CharSet(whitespace));
+    
+    // 5. 基本类型关键字: int|char|void
+    test_fr[4] = TFr_Union(
+        TFr_String("int"),
+        TFr_Union(
+            TFr_String("char"),
+            TFr_String("void")
+        )
+    );
+    
+    // 6. 赋值运算符: =|\+=|-=|\*=|/=
+    test_fr[5] = TFr_Union(
+        TFr_SingleChar('='),
+        TFr_Union(
+            TFr_Union(
+                TFr_String("+="),
+                TFr_String("-=")
+            ),
+            TFr_Union(
+                TFr_String("*="),
+                TFr_String("/=")
+            )
+        )
+    );
+    
+    // 7. 算术运算符: \+|-|\*|/|%
+    struct char_set *arithmetic = (struct char_set *)malloc(sizeof(struct char_set));
+    arithmetic->c = strdup("+-*/%");
+    arithmetic->n = strlen(arithmetic->c);
+    test_fr[6] = TFr_CharSet(arithmetic);
+    
+    // 8. 括号: \(|\)|\{|\}|\[|\]
+    struct char_set *brackets = (struct char_set *)malloc(sizeof(struct char_set));
+    brackets->c = strdup("(){}[]");
+    brackets->n = strlen(brackets->c);
+    test_fr[7] = TFr_CharSet(brackets);
+    
+    // 9. 字符串字面量: "[^"]*"
+    struct char_set *string_chars = (struct char_set *)malloc(sizeof(struct char_set));
+    string_chars->c = strdup("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_!@#$%^&*()-=+[]{}\\|;:',.<>/?` \t\n");
+    string_chars->n = strlen(string_chars->c);
+    test_fr[8] = TFr_Concat(
+        TFr_SingleChar('"'),
+        TFr_Concat(
+            TFr_Star(TFr_CharSet(string_chars)),
+            TFr_SingleChar('"')
+        )
+    );
+    
+    // 10. 注释: //[^\n]*
+    struct char_set *comment_chars = (struct char_set *)malloc(sizeof(struct char_set));
+    comment_chars->c = strdup("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_!@#$%^&*()-=+[]{}\\|;:',.<>/?` \t");
+    comment_chars->n = strlen(comment_chars->c);
+    test_fr[9] = TFr_Concat(
+        TFr_String("//"),
+        TFr_Star(TFr_CharSet(comment_chars))
+    );
+
+    // 11. 注释: 分号
+    test_fr[10] = TFr_SingleChar(';');
+} // 一套简化的c语言语法
+
 void allocate_and_initialize_test_fr(int test_case) {
   switch (test_case) {
     case 1:

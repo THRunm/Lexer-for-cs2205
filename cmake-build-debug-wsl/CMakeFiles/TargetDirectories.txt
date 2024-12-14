@@ -1,4 +1,0 @@
-/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug-wsl/CMakeFiles/regex_lib.dir
-/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug-wsl/CMakeFiles/main.dir
-/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug-wsl/CMakeFiles/edit_cache.dir
-/mnt/c/Users/26548/Desktop/Grammar-parser-for-cs2205/cmake-build-debug-wsl/CMakeFiles/rebuild_cache.dir

@@ -4,7 +4,7 @@
 #include "lang.h"
 
 struct component {
-    int src, dst;
+  int src, dst;
 };
 
 // build NFA from the given simplified regular expression.

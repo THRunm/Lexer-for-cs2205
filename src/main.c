@@ -72,7 +72,6 @@ void read_inputs(char *file_name, char ***inputs, int *number) {
 
 int main(int argc, char *argv[]) {
     int test_case =atoi(argv[1]);
-    //TODO 这里生成的测试样例的内存没有释放
     initialize_test_types(test_case);
     allocate_and_initialize_test_fr(test_case);
     struct frontend_regexp **fr_regexps ;
@@ -125,9 +124,9 @@ int main(int argc, char *argv[]) {
     }
     printf("tokens finished\n");
     for (int i = 0; i < types_num; i++) {
-        // free_simpl_regexp(sr_regexps[i]);
-        // free_frontend_regexp(fr_regexps[i]);
-        free_finite_automata(nfa[i]);
+         //free_simpl_regexp(sr_regexps[i]);
+         //free_frontend_regexp(fr_regexps[i]);
+        //free_finite_automata(nfa[i]);
     }
 
     for (int i = 0; i < number; i++) {
