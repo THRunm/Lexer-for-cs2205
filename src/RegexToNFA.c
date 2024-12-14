@@ -19,6 +19,7 @@ struct component* build(struct simpl_regexp* x) {
         add_one_edge(nfa, S, res->dst, &EMPTY);
         add_one_edge(nfa, res->dst, res->src, &EMPTY);
         add_one_edge(nfa, res->dst, T, &EMPTY);
+        free(res);
     } else if (x->t == T_S_EMPTY_STR) {
         S = add_one_vertex(nfa);
         T = add_one_vertex(nfa);
@@ -32,13 +33,14 @@ struct component* build(struct simpl_regexp* x) {
         add_one_edge(nfa, S, res2->src, &EMPTY);
         add_one_edge(nfa, res1->dst, T, &EMPTY);
         add_one_edge(nfa, res2->dst, T, &EMPTY);
+        free(res1), free(res2);
     } else if (x->t == T_S_CONCAT) {
         struct component * res1 = build(x->d.CONCAT.r1);
         struct component * res2 = build(x->d.CONCAT.r2);
         S = res1->src, T = res2->dst;
         add_one_edge(nfa, res1->dst, res2->src, &EMPTY);
+        free(res1), free(res2);
     }
-    //TODO 内存未释放
     struct component * res = (struct component*)malloc(sizeof(struct component));
     res->src = S, res->dst = T;
     return res;
@@ -62,4 +64,14 @@ void print(struct finite_automata * g) {
         }
         printf("\n");
     }
+}
+
+void free_finite_automata(struct finite_automata * g) {
+    free(g->src);
+    free(g->dst);
+    for (int i = 0; i < g->m; i++) {
+        free(g->lb[i].c);
+    }
+    free(g->lb);
+    free(g);
 }
