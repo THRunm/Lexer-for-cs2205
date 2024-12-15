@@ -6,6 +6,7 @@
 #include "../include/RegexToNFA.h"
 #include "../include/SimplifyRegex.h"
 #include "../test/test.h"
+#include "../include/Regex_Creator_For_User.h"
 
 void read_inputs(char *file_name, char ***inputs, int *number) {
     FILE *fp = fopen(file_name, "r");
@@ -72,8 +73,27 @@ void read_inputs(char *file_name, char ***inputs, int *number) {
 
 int main(int argc, char *argv[]) {
     int test_case =atoi(argv[1]);
-    initialize_test_types(test_case);
-    allocate_and_initialize_test_fr(test_case);
+    if(argc!=3)
+    {
+        // 参数个数不对
+        printf("Too few or too many arguments!\n",argv[0]);
+        return 0;
+    }
+    if(test_case > 0 && test_case < 11){
+        initialize_test_types(test_case);
+        allocate_and_initialize_test_fr(test_case);
+    }
+    else{
+        if(test_case == -1){
+            initialize_user_types();
+            allocate_and_initialize_user_fr();
+        }
+        else{
+            // 测试用例编号不合法
+            printf("Invalid test case number!\n");
+            return 0;
+        }
+    }
     struct frontend_regexp **fr_regexps ;
     struct type *types;
     int types_num=1;
