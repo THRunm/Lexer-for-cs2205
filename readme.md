@@ -20,9 +20,11 @@
 
 * 本项目的组织如下：
 
-  ```
+  ```bash
   .
   ├── CMakeLists.txt
+  ├── figure
+  │   └── process.png
   ├── include
   │   ├── DFALexicalAnalyzer.h
   │   ├── NFAToDFA.h
@@ -31,6 +33,8 @@
   │   ├── SimplifyRegex.h
   │   └── lang.h
   ├── readme.md
+  ├── release
+  │   └── main
   ├── src
   │   ├── DFALexicalAnalyzer.c
   │   ├── NFAToDFA.c
@@ -57,7 +61,7 @@
       └── test.h
   ```
   
-  本项目使用 CMake 在 linux 环境下编译  。`include` 文件夹用于存放项目各部分的头文件。`src` 文件夹用于存放项目各部分的源代码，其中 `read_files` 文件夹用于存放我们提供的样例（即输入进行词法分析的字符串），分别作为 `text.c` 中包含的 10 个测试点对应的待匹配文本串。`test` 文件夹则单独存放了测试文件，包括比较器、以及用于生成测试数据（即描述词法规则的正则表达式）的测试器。
+  本项目使用 CMake 在 linux 环境下编译  。`include` 文件夹用于存放项目各部分的头文件。`src` 文件夹用于存放项目各部分的源代码，其中 `read_files` 文件夹用于存放我们提供的样例（即输入进行词法分析的字符串），分别作为 `text.c` 中包含的 10 个测试点对应的待匹配文本串。`test` 文件夹则单独存放了测试文件，包括比较器、以及用于生成测试数据（即描述词法规则的正则表达式）的测试器。`figure` 文件夹存放了 `readme.md` 中的图片。`release` 文件夹中则存放了本项目编译完成的可执行文件。 
 
 ## 实现
 
@@ -131,14 +135,14 @@
      make
      ```
   
-* 测试方法：编译完成后，直接运行 `main` 可执行文件即可。运行 `main` 的命令为 `./main test_case read_file` 。其中 `test_case` 为提供词法规则定义的测试点编号，应当为一个 1 到 10 之间的整数，`read_file` 则为要进行词法分析的目标文档的地址。
+* 测试方法：编译完成后，直接运行 `main` 可执行文件即可。运行 `main` 的命令为 `./main <test_case>` 。其中 `<test_case>` 为测试点编号，应当为一个 1 到 10 之间的整数。
   
   ```bash
-  ./main test_case read_file
+  ./main <test_case>
   ```
   
-* 使用方法：我们在 `Regex_Creator_For_User.c` 中为用户提供了自定义词法分析规则的接口，您可以通过其中的简要说明了解如何自定义词法分析器。调用自定义词法分析器的方式则与测试方法相同，您只需在参数 `test_case` 的位置输入 -1 ，并在 `read_file` 位置输入您希望进行词法分析的目标文档的地址即可。
+* 使用方法：我们在 `Regex_Creator_For_User.c` 中为用户提供了自定义词法分析规则的接口，您可以通过其中的简要说明了解如何自定义词法分析器。调用自定义词法分析器的命令为 `./main -1 <read_file>` ，其中 `<read_file>` 为您希望进行词法分析的目标文档的地址。
 
   ```bash
-  ./main -1 read_file
+  ./main -1 <read_file>
   ```
