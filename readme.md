@@ -141,8 +141,10 @@
   ./main <test_case>
   ```
   
-* 使用方法：我们在 `Regex_Creator_For_User.c` 中为用户提供了自定义词法分析规则的接口，您可以通过其中的简要说明了解如何自定义词法分析器。调用自定义词法分析器的命令为 `./main -1 <read_file>` ，其中 `<read_file>` 为您希望进行词法分析的目标文档的地址。
+* 使用方法：我们在 `Regex_Creator_For_User.c` 中为用户提供了自定义词法分析规则的接口。具体的，您需要在 `initialize_user_types()` 函数中填写自定义词法规则的个数、类型名，并从 1 开始依次填写它们的 id 值。您还需要在 `allocate_and_initialize_user_fr()` 函数中填写每一个词法规则的解析树形式的正则表达式（您可能会用到 `lang.h` 中定义的用于构建解析树的函数）。
 
+  调用自定义词法分析器的命令为 `./main -1 <read_file>` ，其中 `<read_file>` 为您希望进行词法分析的目标文档的地址。
+  
   ```bash
   ./main -1 <read_file>
   ```
