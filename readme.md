@@ -61,7 +61,7 @@
 
 ## 实现
 
-![](figure\process.png)
+![](https://cdn.luogu.com.cn/upload/image_hosting/rfn7045w.png)
 
 * `lang.c/.h` 由课程提供，实现了用于存储本项目所需数据结构的结构体。
 
