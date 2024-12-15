@@ -1,6 +1,6 @@
 # 程序语言编程任务报告
 
-尊敬的曹老师，您好。本文是王艺润、张珂玮、裘凯希、车昕宇小组的编程任务最终报告，我们的主题是《词法分析器，根据正则表达式生成 DFA 》。
+尊敬的曹老师和助教们，你们好。本文是王艺润、张珂玮、裘凯希、车昕宇小组的编程任务最终报告，我们的主题是《词法分析器，根据正则表达式生成 DFA 》。
 
 本报告将简述本项目实现的特性，具体内容的组织，各部分的实现，以及编译使用及测试方法。
 
@@ -80,25 +80,25 @@
   `main.c` 的输出遵从以下格式：
 
   ```bash
-  types_num: 					# The number of given types.
-  ac							# Each type is listed in order.
+  types_num:                  # The number of given types.
+  ac                          # Each type is listed in order.
   [a][c]
   ...        			
-  nfa started					# Begin to print nfa of each type.
-  start:0,end:3				# The start and end vertices.
-  n = 4, m = 3				# The number of vertices and edges.
-  src = 0, dst = 1, lb = a	# Description of each edge.
+  nfa started                 # Begin to print nfa of each type.
+  start:0,end:3               # The start and end vertices.
+  n = 4, m = 3                # The number of vertices and edges.
+  src = 0, dst = 1, lb = a    # Description of each edge.
   ...
-  nfa finished				# Finish printinf nfas.
-  n = 23, m = 53				# Begin to print the only dfa.
-  src = 0, dst = 1, lb = a	# Description of each edge.
+  nfa finished                # Finish printinf nfas.
+  n = 23, m = 53              # Begin to print the only dfa.
+  src = 0, dst = 1, lb = a    # Description of each edge.
   ...
-  dfa finished				# Finish printing dfa.
-  Line Number 2				# The number of lines of the given doc.
-  Tokens:						# This is printed each line.
-  Token:"ac", Type: ac		# The Segmentation and classification results.
+  dfa finished                # Finish printing dfa.
+  Line Number 2               # The number of lines of the given doc.
+  Tokens:                     # This is printed each line.
+  Token:"ac", Type: ac        # The Segmentation and classification results.
   ...
-  tokens finished				# Finish printing tokens.
+  tokens finished             # Finish printing tokens.
   ```
 
 * 测试文件的实现。本项目的测试文件分为两部分，第一部分 `compare_struct.c/.h` 是比较器，用于对比字符集、正则表达式、简化正则表达式与有限状态自动机。第二部分 `test.c/.h` 是测试器，共包含了 10 个测试点，每个测试点所定义的词法规则各有侧重，如下所述：
